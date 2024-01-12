@@ -11,19 +11,19 @@ header {
   align-items: center;
   padding: 0 2.5rem;
   box-shadow: 0 5px 15px #282c3483;
-
-  .logo {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    gap: 10px;
-    color: #ff9a04;
-    font-size: 2rem;
-  }
-  .logo-title {
-    display: block;
-  }
+  height: 6rem;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  color: #ff9a04;
+  font-size: 2rem;
+}
+.logo-title {
+  display: block;
 }
 nav {
   display: flex;
@@ -103,7 +103,7 @@ a {
   color: #fff;
 }
 @media screen and (max-width: 769px) {
-  header .logo-title {
+  .logo-title {
     display: none;
   }
   .navbar {
@@ -133,7 +133,18 @@ a {
   }
   .mobile i {
     font-size: 2rem;
-    padding: 1rem 2rem;
     cursor: pointer;
   }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5rem;
 }

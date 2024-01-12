@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 
-const Header = () => {
+const Footer = () => {
   const [showNav, setshowNav] = useState(false);
   // state = { clicked: false };
   // handleClick = () => {
@@ -10,7 +10,7 @@ const Header = () => {
   // };
   // render() {
   return (
-    <footer className={`${showNav ? "show" : ""}`}>
+    <footer>
       <div>
         <Link className="logo" to="/">
           <svg
@@ -32,36 +32,6 @@ const Header = () => {
           <p className="logo-title">KS Movie</p>
         </Link>
       </div>
-      <Nav />
-      <div
-        className="mobile"
-        onClick={() => {
-          setshowNav(!showNav);
-        }}
-      >
-        <i className={`${showNav ? "fas fa-times" : "fas fa-bars"}`}></i>
-      </div>
-
-      {/* <nav>
-          <div>
-            <ul
-              id="navbar"
-              className={this.state.clicked ? "#navbar active" : "#navbar"}
-            >
-              <li>
-                <a href="#">about</a>
-              </li>
-              <li>
-                <a href="#">favourite</a>
-              </li>
-            </ul>
-          </div>
-          <div className="mobile" onClick={this.handleClick}>
-            <i
-              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-            ></i>
-          </div>
-        </nav> */}
     </footer>
   );
   // }
