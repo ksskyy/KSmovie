@@ -4,11 +4,6 @@ import Nav from "../components/Nav";
 
 const Header = () => {
   const [showNav, setshowNav] = useState(false);
-  // state = { clicked: false };
-  // handleClick = () => {
-  //   this.setState({ clicked: !this.state.clicked });
-  // };
-  // render() {
   return (
     <header className={`${showNav ? "show" : ""}`}>
       <div>
@@ -41,30 +36,8 @@ const Header = () => {
       >
         <i className={`${showNav ? "fas fa-times" : "fas fa-bars"}`}></i>
       </div>
-
-      {/* <nav>
-          <div>
-            <ul
-              id="navbar"
-              className={this.state.clicked ? "#navbar active" : "#navbar"}
-            >
-              <li>
-                <a href="#">about</a>
-              </li>
-              <li>
-                <a href="#">favourite</a>
-              </li>
-            </ul>
-          </div>
-          <div className="mobile" onClick={this.handleClick}>
-            <i
-              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-            ></i>
-          </div>
-        </nav> */}
     </header>
   );
-  // }
 };
 
 export default Header;
