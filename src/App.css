@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
 }
+/* --header-- */
 header {
   background-color: #282c34;
   text-align: center;
@@ -87,14 +88,12 @@ a {
   transform: scale(1.2);
 }
 
-.navbar li a:active .circle,
-.navbar li a:visited .circle {
+.navbar li a:active .circle {
   width: 20px;
   height: 20px;
 }
 
-.navbar li a:active:after,
-.navbar li a:visited:after {
+.navbar li a:active:after {
   width: 50%;
 }
 .mobile {
