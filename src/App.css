@@ -114,7 +114,7 @@ a {
     position: fixed;
     top: 3.7rem;
     right: -300px;
-    width: 300px;
+    width: 240px;
     height: 100vh;
     background-color: #282c34;
     box-shadow: 0 40px 60px #282c3476;
@@ -136,7 +136,12 @@ a {
     cursor: pointer;
   }
 }
-
+/* movie */
+img {
+  width: 290px;
+  margin: 30px 10px;
+}
+/* Footer */
 footer {
   display: flex;
   justify-content: center;
@@ -144,7 +149,6 @@ footer {
   background-color: #282c34;
   text-align: center;
   position: absolute;
-  bottom: 0;
   width: 100%;
   height: 6rem;
 }
