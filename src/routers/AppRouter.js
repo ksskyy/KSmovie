@@ -4,7 +4,6 @@ import About from "../pages/About";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Favourite from "../pages/Favourite";
-import Movie from "../components/Movie";
 
 function AppRouter() {
   return (
@@ -17,7 +16,6 @@ function AppRouter() {
             <Route path="/about" element={<About />} />
             <Route path="/favourite" element={<Favourite />} />
           </Routes>
-          <Movie />
         </main>
       </div>
       <Footer />

@@ -141,6 +141,12 @@ img {
   width: 290px;
   margin: 30px 10px;
 }
+.movie-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 /* Footer */
 footer {
   display: flex;

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import PAGE_NAME from "../global/globals";
+import Movie from "../components/Movie";
 
 const Home = () => {
   useEffect(() => {
@@ -8,6 +9,7 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
+      <Movie />
     </div>
   );
 };

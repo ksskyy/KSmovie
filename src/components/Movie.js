@@ -14,7 +14,8 @@ function Movie() {
   }, []);
 
   return (
-    <div>
+    <div className="movie-list">
+      <div></div>
       {movieList ? (
         movieList.map((movie) => (
           <img
