@@ -47,7 +47,7 @@
   padding-bottom: 0.5rem;
   z-index: 10;
 }
-.more-info :hover {
+.more-info:hover {
   color: #000;
   background-color: #ff9a04;
   transition: all 0.2s;
@@ -95,13 +95,19 @@
   .more-info {
     top: 85%;
   }
+  .more-info:active {
+    color: #000;
+    background-color: #ff9a04;
+  }
   .banner__description {
     top: 60%;
   }
   .banner__button {
+    color: #ff9b04;
     position: absolute;
     font-size: 2rem;
     top: 89%;
     left: 80%;
+    z-index: 20;
   }
 }
