@@ -5,7 +5,7 @@ import Nav from "../components/Nav";
 const Header = () => {
   const [showNav, setshowNav] = useState(false);
   return (
-    <header className={`${showNav ? "show" : ""}`}>
+    <header className={`header ${showNav ? "show" : ""}`}>
       <div>
         <Link className="logo" to="/">
           <svg

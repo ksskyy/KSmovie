@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Nav = () => {
-  const [show, setshow] = useState(false);
+  // const [show, setshow] = useState(false);
   return (
     <nav>
       <ul className="navbar">
