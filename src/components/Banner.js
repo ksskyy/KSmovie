@@ -42,21 +42,19 @@ function Banner() {
       }}
     >
       {movie && (
-        <div className="banner__contents">
-          <h1 className="banner__title">
+        <div className="banner-contents">
+          <h1 className="banner-title">
             {movie?.title || movie?.name || movie?.original_name}
           </h1>
           <button className="more-info">More Info</button>
-          <button className="banner__button">
+          <button className="banner-button">
             <i class="fa-solid fa-circle-play"></i>
           </button>
           {/* <FontAwesomeIcon icon="fa-solid fa-circle-play" /> */}
-          <p className="banner__description">
-            {truncate(movie?.overview, 150)}
-          </p>
+          <p className="banner-description">{truncate(movie?.overview, 150)}</p>
         </div>
       )}
-      <div className="banner__fadeBottom"></div>
+      <div className="banner-bottom"></div>
     </div>
   );
 }
