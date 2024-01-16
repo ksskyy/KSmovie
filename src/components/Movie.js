@@ -5,13 +5,7 @@ import Card from "./Card";
 function Movie() {
   return (
     <div className="movie-list">
-      <div className="posters">
-        {/* <Card /> */}
-
-        <button className="heart">
-          <i class="fa-solid fa-heart-circle-plus"></i>
-        </button>
-      </div>
+      <div className="posters">{/* <Card /> */}</div>
 
       <div className="movie-details">
         <div>
