@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import PAGE_NAME from "../global/globals";
 import Movie from "../components/Movie";
 import Banner from "../components/Banner";
+import Panel from "../components/Panel";
 
 const Home = () => {
   useEffect(() => {
@@ -10,6 +11,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
+      <Panel />
       <Movie />
     </div>
   );

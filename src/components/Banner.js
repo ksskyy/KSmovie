@@ -15,7 +15,6 @@ function Banner() {
         }
 
         const data = await response.json();
-        // console.log(data);
         if (data.results && data.results.length > 0) {
           const randomIndex = Math.floor(Math.random() * data.results.length);
           setMovie(data.results[randomIndex]);
