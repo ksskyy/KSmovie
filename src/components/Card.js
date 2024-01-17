@@ -19,13 +19,12 @@ function Card() {
   }, []);
 
   return (
-    <div to="" className="movie-card">
+    <div className="movie-card">
       {movieList ? (
         movieList.map((movie) => (
-          <Link>
+          <Link key={movie.id} to={`/src/pages/MoviePage${movie.id}`}>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <img
-                key={movie.id}
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
               />
