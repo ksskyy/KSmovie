@@ -8,6 +8,15 @@ function SingleMoviePage() {
   const { id } = useParams();
   let img;
   switch (id) {
+    case 1:
+      img = (
+        <div>
+          <img src="" />
+        </div>
+      );
+      break;
+    default:
+      break;
   }
 
   return (
