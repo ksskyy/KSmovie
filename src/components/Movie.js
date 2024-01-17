@@ -4,10 +4,10 @@ import Card from "./Card";
 
 function Movie() {
   return (
-    <div className="movie-list">
-      <div className="posters">{/* <Card /> */}</div>
+    <div className="movies">
+      {<Card />}
 
-      <div className="movie-details">
+      {/* <div className="movie-details">
         <div>
           <h4 className="movie-title">Movie Title</h4>
           <p className="rating">9</p>
@@ -16,7 +16,7 @@ function Movie() {
           <h2>overview</h2>
           <p>details details</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

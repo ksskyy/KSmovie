@@ -163,32 +163,45 @@ a {
   }
 }
 /* movie */
-img {
-  width: 290px;
-  margin: 30px 10px;
-}
+
 button {
   all: unset;
 }
 
-.card {
-  display: flex;
-  flex-wrap: wrap;
+.movie-card {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin: 2.5rem;
+  gap: 1.5rem;
 }
-.card img {
+.movie-card a {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.movie-card img {
+  max-width: 100%;
+  height: auto;
   position: relative;
+  border-radius: 0.5rem;
+}
+
+.movie-card h4 {
+  color: var(--third-color);
+  text-align: left;
+  margin: 0.5rem;
+  font-weight: normal;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+}
+
+.movie-card p {
+  color: var(--secondary-color);
 }
 .heart {
   position: absolute;
   bottom: 10%;
   right: 10%;
   color: var(--secondary-color);
-}
-.movie-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
 }
 /* Footer */
 footer {

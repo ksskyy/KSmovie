@@ -12,7 +12,7 @@ const Home = () => {
     <div>
       <Banner />
       <Panel />
-      <Movie />
+      {/* <Movie /> */}
     </div>
   );
 };

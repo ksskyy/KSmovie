@@ -4,12 +4,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { Footer } from "./components/Footer";
 import AppRouter from "./routers/AppRouter";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
       <AppRouter />
-    </div>
+    </Provider>
   );
 }
 

@@ -1,6 +1,7 @@
 .panel {
   font-size: 1.5rem;
   font-weight: 500;
+  /* margin-left: 2.5rem; */
 }
 .react-tabs__tab-list {
   display: flex;

@@ -1,6 +1,7 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./Panel.css";
+import Movie from "./Movie";
 
 const Panel = () => {
   return (
@@ -13,7 +14,7 @@ const Panel = () => {
           <Tab>Uncoming</Tab>
         </TabList>
         <TabPanel>
-          <p>p</p>
+          <Movie />
         </TabPanel>
         <TabPanel>
           <p>n</p>
