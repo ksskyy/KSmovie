@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link, json } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { API_KEY, TMDB_BASE_URL } from "../Requests";
 import Requests from "../Requests";
 import { motion } from "framer-motion";
+import { addFavMovie, deleteFavMovie } from "../pages/MoviePage";
+import { useDispatch } from "react-redux";
 
 function Card() {
   const [movieList, setmovieList] = useState();
@@ -14,12 +16,28 @@ function Card() {
         setmovieList(json.results);
       });
   };
+
   useEffect(() => {
     getMovie();
   }, []);
 
+  const dispatch = useDispatch();
+
+  function handleFavClick(addToFav, obj) {
+    if (addToFav === true) {
+      dispatch(addFavMovie(obj));
+    } else {
+      dispatch(deleteFavMovie(obj));
+    }
+  }
+
   return (
     <div className="movie-card">
+      {isFav && (
+        <div className="heart">
+          <img src={`${imageFolderPath}heart.png`} alt="Heart" />
+        </div>
+      )}
       {movieList ? (
         movieList.map((movie) => (
           <Link key={movie.id} to={`/src/pages/MoviePage${movie.id}`}>
@@ -29,8 +47,24 @@ function Card() {
                 alt={movie.title}
               />
             </motion.div>
-            <h4 className="movie-title">{movie.title}</h4>
-            <p>{movie.vote_average}</p>
+            <div className="movie-info">
+              <h4 className="movie-title">{movie.title}</h4>
+              <p>{movie.vote_average}</p>
+            </div>
+            <div className="btn-favourite">
+              {isFav ? (
+                <FavButton
+                  kittenObj={kittenObj}
+                  remove={true}
+                  handleFavClick={handleFavClick}
+                />
+              ) : (
+                <FavButton
+                  kittenObj={kittenObj}
+                  handleFavClick={handleFavClick}
+                />
+              )}
+            </div>
           </Link>
         ))
       ) : (

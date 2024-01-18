@@ -1,23 +1,17 @@
 import { useEffect } from "react";
 import PAGE_NAME from "../global/globals";
+import { useParams } from "react-router-dom";
 
 function SingleMoviePage() {
   useEffect(() => {
     document.title = `${PAGE_NAME} - Detail`;
   }, []);
+
   const { id } = useParams();
-  let img;
-  switch (id) {
-    case 1:
-      img = (
-        <div>
-          <img src="" />
-        </div>
-      );
-      break;
-    default:
-      break;
-  }
+
+  useEffect(() => {
+    console.log("id", id);
+  }, [id]);
 
   return (
     <section>
