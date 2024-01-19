@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import PAGE_NAME from "../global/globals";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
-function SingleMoviePage() {
+function MoviePage() {
   useEffect(() => {
     document.title = `${PAGE_NAME} - Detail`;
   }, []);
@@ -15,13 +15,13 @@ function SingleMoviePage() {
 
   return (
     <section>
-      {!img && (
+      {/* {!img && (
         <Navigate to={`/src/pages/MoviePage${movie.id}`} replace={true} />
       )}
       <h2>${movie.title}</h2>
-      {img}
+      {img} */}
     </section>
   );
 }
 
-export default SingleMoviePage;
+export default MoviePage;

@@ -44,9 +44,10 @@ function Banner() {
         <div className="banner-contents">
           <h1 className="banner-title">
             {movie?.title || movie?.name || movie?.original_name}
-            <button className="banner-heart">
+
+            {/* <button className="banner-heart">
               <i class="fa-solid fa-heart-circle-plus"></i>
-            </button>
+            </button> */}
           </h1>
           <button className="more-info">More Info</button>
           <button className="banner-button">
