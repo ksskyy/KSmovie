@@ -31,7 +31,9 @@ function Card({ movieObj, isFav }) {
       dispatch(deleteFavMovie(obj));
     }
   }
-
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
   return (
     <div className="movie-card">
       {isFav && (
@@ -40,9 +42,6 @@ function Card({ movieObj, isFav }) {
       {movieList ? (
         movieList.map((movie) => (
           <div>
-            <Link key={movie.id} to={`/src/pages/MoviePage${movie.id}`}>
-              MORE
-            </Link>
             <motion.div
               className="card-details"
               whileHover={{ scale: 1.1 }}
@@ -52,11 +51,13 @@ function Card({ movieObj, isFav }) {
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
               />
-              <div className="movie-overview">
-                <h4>OVERVIEW</h4>
-                <p>{movie?.overview}</p>
-                <button>MORE</button>
-              </div>
+              <Link key={movie.id} to={`/src/pages/MoviePage${movie.id}`}>
+                <div className="movie-overview">
+                  <h4>OVERVIEW</h4>
+                  <p>{truncate(movie?.overview, 80)}</p>
+                  <button>MORE</button>
+                </div>
+              </Link>
             </motion.div>
             <div className="movie-info">
               <h4 className="movie-title">{movie.title}</h4>

@@ -185,6 +185,8 @@ button {
 }
 .card-details {
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
 }
 
 .card-details img {
@@ -201,15 +203,13 @@ button {
   font-size: clamp(1rem, 2vw, 2.5rem);
 }
 
-.movie-card p {
-  color: var(--secondary-color);
-}
 .movie-overview {
+  margin: 0;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
+  width: fit-content;
   background: #00000080;
   display: flex;
   flex-direction: column;
@@ -217,6 +217,18 @@ button {
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  overflow-y: auto;
+}
+.movie-overview h4 {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+.movie-overview p {
+  margin: 0 0.5rem;
+  color: var(--third-color);
 }
 .card-details:hover .movie-overview {
   opacity: 1;
