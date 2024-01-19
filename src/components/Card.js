@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import FavButton from "../components/FavButton";
 
 function Card({ movieObj, isFav }) {
-  const [movieList, setmovieList] = useState();
+  const [movieList, setmovieList] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const getMovie = () => {
@@ -60,7 +60,7 @@ function Card({ movieObj, isFav }) {
       {isFav && (
         <FavButton movieObj={movieObj} handleFavClick={handleFavClick} />
       )}
-      {movieList ? (
+      {movieList.length > 0 ? (
         movieList.map((movie) => (
           <div>
             <motion.div
