@@ -9,7 +9,7 @@ import FavButton from "../components/FavButton";
 
 function Card({ movieObj, isFav }) {
   const [movieList, setmovieList] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const getMovie = () => {
     fetch(Requests.fetchPopular)
@@ -32,17 +32,18 @@ function Card({ movieObj, isFav }) {
     getMovie();
   }, []);
 
-  function handleGetMovie(e) {
-    e.preventDefault();
-    setLoading(true);
-    getMovie()
-      .then((json) => {
-        setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-      });
-  }
+  // function handleGetMovie(e) {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   getMovie()
+  //     .then((json) => {
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       setLoading(false);
+  //     });
+  // }
+
   const dispatch = useDispatch();
 
   function handleFavClick(addToFav, obj) {
@@ -75,6 +76,7 @@ function Card({ movieObj, isFav }) {
               <Link key={movie.id} to={`/src/pages/MoviePage${movie.id}`}>
                 <div className="movie-overview">
                   <h4>OVERVIEW</h4>
+                  <h4>{movie.release_data}</h4>
                   <p>{truncate(movie?.overview, 80)}</p>
                   <button>MORE</button>
                 </div>
@@ -88,7 +90,7 @@ function Card({ movieObj, isFav }) {
               {isFav ? (
                 <FavButton
                   movieObj={movieObj}
-                  remove={true}
+                  fav={true}
                   handleFavClick={handleFavClick}
                 />
               ) : (

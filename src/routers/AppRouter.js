@@ -10,8 +10,8 @@ import MoviePage from "../pages/MoviePage";
 function AppRouter() {
   return (
     <BrowserRouter>
-      <Header />
-      {/* <Banner /> */}
+      {/* <Header /> */}
+
       <main>
         <Routes>
           <Route path="/" exact element={<Home />} />

@@ -5,6 +5,7 @@ import Card from "./Card";
 // import { useDispatch } from "react-redux";
 
 function Movie() {
+  const [popular, setPopular] = useState([]);
   // const dispatch = useDispatch();
 
   // function handleFavClick(addToFav, obj) {
