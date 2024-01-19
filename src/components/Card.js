@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 import { API_KEY, TMDB_BASE_URL } from "../Requests";
 import Requests from "../Requests";
 import { motion } from "framer-motion";
@@ -9,6 +9,8 @@ import FavButton from "../components/FavButton";
 
 function Card({ movieObj, isFav }) {
   const [movieList, setmovieList] = useState();
+  const [loading, setLoading] = useState(false);
+
   const getMovie = () => {
     fetch(Requests.fetchPopular)
       .then((res) => {
@@ -30,6 +32,17 @@ function Card({ movieObj, isFav }) {
     getMovie();
   }, []);
 
+  function handleGetMovie(e) {
+    e.preventDefault();
+    setLoading(true);
+    getMovie()
+      .then((json) => {
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  }
   const dispatch = useDispatch();
 
   function handleFavClick(addToFav, obj) {
@@ -88,7 +101,8 @@ function Card({ movieObj, isFav }) {
           </div>
         ))
       ) : (
-        <p>Loading...</p>
+        <div className="spinner"></div>
+        // <p>Loading...</p>
       )}
     </div>
   );
