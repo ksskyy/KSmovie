@@ -11,7 +11,15 @@ function Card({ movieObj, isFav }) {
   const [movieList, setmovieList] = useState();
   const getMovie = () => {
     fetch(Requests.fetchPopular)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network was not OK.");
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        return err;
+      })
       .then((json) => {
         console.log("JSON results:", json.results);
         setmovieList(json.results);
