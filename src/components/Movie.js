@@ -1,40 +1,41 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
-// import { addFavMovie, deleteFavMovie } from "../pages/MoviePage";
-// import { useDispatch } from "react-redux";
+import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
+import { useDispatch } from "react-redux";
+import isFav from "../utilities/isFav";
+import Requests from "../Requests";
 
 function Movie() {
-  const [popular, setPopular] = useState([]);
-  // const dispatch = useDispatch();
+  const [movieList, setmovieList] = useState([]);
 
-  // function handleFavClick(addToFav, obj) {
-  //   if (addToFav === true) {
-  //     dispatch(addFavMovie(obj));
-  //   } else {
-  //     dispatch(deleteFavMovie(obj));
-  //   }
-  // }
+  const getMovie = () => {
+    fetch(Requests.fetchPopular)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network was not OK.");
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        return err;
+      })
+      .then((json) => {
+        console.log("JSON results:", json.results);
+        setmovieList(json.results);
+      });
+  };
+  useEffect(() => {
+    getMovie();
+  }, []);
 
   return (
-    <div className="movies">
-      {/* {isFav && (
-        <div className="heart">
-          <img src={`${imageFolderPath}heart.png`} alt="Heart" />
-        </div>
-      )} */}
-      {<Card />}
-
-      {/* <div className="movie-details">
-        <div>
-          <h4 className="movie-title">Movie Title</h4>
-          <p className="rating">9</p>
-        </div>
-        <div className="overview">
-          <h2>overview</h2>
-          <p>details details</p>
-        </div>
-      </div> */}
+    <div className="movie-card">
+      {movieList.length === 0 ? (
+        <div className="spinner"></div>
+      ) : (
+        movieList.map((movie) => <Card key={movie.id} movie={movie} />)
+      )}
     </div>
   );
 }

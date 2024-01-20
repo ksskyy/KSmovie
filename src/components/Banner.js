@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Banner.css";
 import Requests from "../Requests";
-// import { truncate } from "./Card";
+import { truncate } from "../utilities/toolbelt";
 
 function Banner() {
   const [movie, setMovie] = useState(null);
@@ -29,10 +29,6 @@ function Banner() {
 
     fetchData();
   }, []);
-
-  function truncate(str, n) {
-    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-  }
 
   return (
     <div

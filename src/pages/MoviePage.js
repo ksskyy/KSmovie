@@ -7,7 +7,7 @@ import Card from "../components/Card";
 import { useSelector } from "react-redux";
 
 function MoviePage() {
-  const favs = useSelector((state) => state.favs.items);
+  // const favs = useSelector((state) => state.favs.items);
   useEffect(() => {
     document.title = `${PAGE_NAME} - Detail`;
   }, []);
