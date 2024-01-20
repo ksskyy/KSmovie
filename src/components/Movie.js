@@ -4,39 +4,42 @@ import Card from "./Card";
 import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
 import { useDispatch } from "react-redux";
 import isFav from "../utilities/isFav";
-import Requests from "../Requests";
+import Requests, { fetchMovies } from "../Requests";
 
-function Movie() {
-  const [movieList, setmovieList] = useState([]);
+function Movie({ title, movieList }) {
+  // const [movieList, setmovieList] = useState([]);
 
-  const getMovie = () => {
-    fetch(Requests.fetchPopular)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network was not OK.");
-        }
-        return res.json();
-      })
-      .catch((err) => {
-        return err;
-      })
-      .then((json) => {
-        console.log("JSON results:", json.results);
-        setmovieList(json.results);
-      });
-  };
-  useEffect(() => {
-    getMovie();
-  }, []);
+  // const getMovies = () => {
+  //   fetchMovies(Requests.fetchPopular)
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error("Network was not OK.");
+  //       }
+  //       return res.json();
+  //     })
+  //     .catch((err) => {
+  //       return err;
+  //     });
+  //   // .then((json) => {
+  //   //   console.log("JSON results:", json.results);
+  //   //   setmovieList(json.results);
+  //   // });
+  // };
+  // useEffect(() => {
+  //   getMovies();
+  // }, []);
 
   return (
-    <div className="movie-card">
-      {movieList.length === 0 ? (
-        <div className="spinner"></div>
-      ) : (
-        movieList.map((movie) => <Card key={movie.id} movie={movie} />)
-      )}
-    </div>
+    <section className="movies-container">
+      <h2>{title}</h2>
+      <div className="movie-card">
+        {movieList.length === 0 ? (
+          <div className="spinner"></div>
+        ) : (
+          movieList.map((movie) => <Card key={movie.id} movie={movie} />)
+        )}
+      </div>
+    </section>
   );
 }
 

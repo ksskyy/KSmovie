@@ -9,7 +9,6 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   background-color: var(--primary-color);
   color: var(--third-color);
-  overflow: hidden;
 }
 :root {
   --primary-color: #282c34;
