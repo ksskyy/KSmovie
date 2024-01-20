@@ -16,7 +16,7 @@ function AppRouter() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/movie/:id" element={<MoviePage />} /> */}
+          <Route path="/movie/:id" element={<MoviePage />} />
           <Route path="/favourite" element={<Favourite />} />
         </Routes>
       </main>

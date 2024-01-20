@@ -4,6 +4,9 @@ import "./Panel.css";
 import Movie from "./Movie";
 
 const Panel = () => {
+  // store each category in its own state
+  // popularMovies
+  // nowPlayingMovies
   return (
     <div className="panel">
       <Tabs>
