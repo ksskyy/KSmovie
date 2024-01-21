@@ -7,32 +7,10 @@ import isFav from "../utilities/isFav";
 import Requests, { fetchMovies } from "../Requests";
 
 function Movie({ title, movieList }) {
-  // const [movieList, setmovieList] = useState([]);
-
-  // const getMovies = () => {
-  //   fetchMovies(Requests.fetchPopular)
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         throw new Error("Network was not OK.");
-  //       }
-  //       return res.json();
-  //     })
-  //     .catch((err) => {
-  //       return err;
-  //     });
-  //   // .then((json) => {
-  //   //   console.log("JSON results:", json.results);
-  //   //   setmovieList(json.results);
-  //   // });
-  // };
-  // useEffect(() => {
-  //   getMovies();
-  // }, []);
-
   return (
     <section className="movies-container">
       <h2>{title}</h2>
-      <div className="movie-card">
+      <div className="movie-list">
         {movieList.length === 0 ? (
           <div className="spinner"></div>
         ) : (

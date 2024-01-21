@@ -168,7 +168,7 @@ button {
   all: unset;
 }
 
-.movie-card {
+.movie-list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   /* grid-template-rows: repeat(3, 1fr);
@@ -178,12 +178,12 @@ button {
   gap: 1.5rem;
 }
 
-.movie-card a {
+.movie-list a {
   text-align: center;
   padding: 0;
   margin: 0;
 }
-.movie-card h4 {
+.movie-list h4 {
   color: var(--third-color);
   text-align: left;
   margin: 0.5rem;

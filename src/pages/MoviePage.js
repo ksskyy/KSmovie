@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PAGE_NAME from "../global/globals";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getMovieById } from "../components/Card";
 import isFav from "../utilities/isFav";
 import Card from "../components/Card";
@@ -12,10 +12,8 @@ function MoviePage() {
     document.title = `${PAGE_NAME} - Detail`;
   }, []);
 
-  const [movieData, setMovieData] = useState();
-
   const { id } = useParams();
-  // console.log(id);
+  const [movieData, setMovieData] = useState();
 
   useEffect(() => {
     getMovieById(id)
@@ -26,23 +24,21 @@ function MoviePage() {
         alert(err);
       });
   }, [id]);
-
+  // const { title, poster_path } = movieId;
   return (
-    <section>
-      <div>
-        {movieData && (
-          <Navigate to={`/movie/${id}`} replace={true} />
-          // <div>
-          //   <Card
-          //     movieData={movieData}
-          //     // movieLink={false}
-          //     // isFav={isFav(favs, null, movieData.id)}
-          //   />
-          //   test
-          // </div>
-        )}
-      </div>
-    </section>
+    <div>
+      {movieData ? (
+        <>
+          <h2>{movieData.title}</h2>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+            alt={movieData.title}
+          />
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
   );
 }
 

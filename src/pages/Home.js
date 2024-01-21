@@ -10,9 +10,8 @@ const Home = () => {
   }, []);
   return (
     <div>
-      {/* <Banner /> */}
+      <Banner />
       <Panel />
-      {/* <Movie /> */}
     </div>
   );
 };

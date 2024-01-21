@@ -9,7 +9,7 @@ import FavButton from "../components/FavButton";
 import { truncate } from "../utilities/toolbelt";
 
 function getMovieById(movieId) {
-  fetch(Requests.fetchPopular)
+  return fetch(`${TMDB_BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
     .then((res) => {
       if (!res.ok) {
         throw new Error("Network was not OK.");
@@ -17,17 +17,11 @@ function getMovieById(movieId) {
       return res.json();
     })
     .catch((err) => {
-      return err;
+      throw err;
     });
-  // .then((json) => {
-  //   // console.log("JSON results:", json.results.id);
-  //   setMovieData(json.results.id);
-  // });
 }
 function Card({ movie, isFav }) {
   // const [movieList, setmovieList] = useState([]);
-
-  // const [loading, setLoading] = useState(false);
   // const navigate = useNavigate();
 
   const dispatch = useDispatch();

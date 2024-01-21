@@ -10,7 +10,7 @@ import MoviePage from "../pages/MoviePage";
 function AppRouter() {
   return (
     <BrowserRouter>
-      {/* <Header /> */}
+      <Header />
 
       <main>
         <Routes>
