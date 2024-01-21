@@ -1,22 +1,18 @@
 import { HiOutlineHeart, HiMiniHeart } from "react-icons/hi2";
 
 function FavButton({ movieObj, fav, handleFavClick }) {
-  function handleAddFav() {
-    handleFavClick(true, movieObj);
-  }
-
-  function handleRemoveFav() {
-    handleFavClick(false, movieObj);
+  function handleToggleFav() {
+    if (fav) {
+      handleFavClick(false, movieObj);
+    } else {
+      handleFavClick(true, movieObj);
+    }
   }
 
   return (
-    <>
-      {fav === false ? (
-        <HiOutlineHeart className="heart" onClick={handleAddFav} />
-      ) : (
-        <HiMiniHeart className="heart" onClick={handleRemoveFav} />
-      )}
-    </>
+    <div onClick={handleToggleFav} className="heart">
+      {fav ? <HiMiniHeart /> : <HiOutlineHeart />}
+    </div>
   );
 }
 

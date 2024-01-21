@@ -20,7 +20,7 @@ function getMovieById(movieId) {
       throw err;
     });
 }
-function Card({ movie, isFav, handleFavClick }) {
+function Card({ movie, isFav }) {
   const dispatch = useDispatch();
 
   function handleFavClick(addToFav, obj) {
@@ -36,8 +36,6 @@ function Card({ movie, isFav, handleFavClick }) {
 
   return (
     <div className="card">
-      {isFav && <FavButton movieObj={movie} handleFavClick={handleFavClick} />}
-
       <motion.div
         className="card-details"
         whileHover={{ scale: 1.1 }}
@@ -63,15 +61,11 @@ function Card({ movie, isFav, handleFavClick }) {
         <p>{movie?.vote_average}</p>
       </div>
       <div className="btn-favourite">
-        {isFav ? (
-          <FavButton
-            movieObj={movie}
-            fav={true}
-            handleFavClick={handleFavClick}
-          />
-        ) : (
-          <FavButton movieObj={movie} handleFavClick={handleFavClick} />
-        )}
+        <FavButton
+          movieObj={movie}
+          fav={isFav}
+          handleFavClick={handleFavClick}
+        />
       </div>
     </div>
   );

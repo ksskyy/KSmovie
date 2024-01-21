@@ -1,13 +1,16 @@
-function isFav(arr, path, id) {
+function isFav(favs, path, id) {
+  if (!Array.isArray(favs)) {
+    return false;
+  }
   if (path === "/favourite") {
     return true;
   }
 
-  if (arr.length === 0) {
+  if (favs.length === 0) {
     return false;
   }
 
-  return arr.some((obj) => obj.id === id);
+  return favs.some((obj) => obj.id === id);
 }
 
 export default isFav;
