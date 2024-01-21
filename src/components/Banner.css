@@ -23,17 +23,22 @@
   margin: 0 1rem;
 }
 .banner-title {
-  color: #ff9a04;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   position: absolute;
   top: 55%;
+  color: #ff9a04;
+}
+.banner-title h1 {
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 800;
   padding-bottom: 1rem;
+  margin-right: 0.25rem;
   z-index: 20;
 }
 .banner-heart {
-  font-size: 1.5rem;
-  padding: 0 1rem;
+  font-size: 3rem;
 }
 .more-info {
   position: absolute;
@@ -95,7 +100,7 @@
 }
 @media screen and (max-width: 425px) {
   .banner-title {
-    top: 40%;
+    top: 60%;
   }
   .more-info {
     top: 85%;
@@ -105,7 +110,11 @@
     background-color: #ff9a04;
   }
   .banner-description {
-    top: 60%;
+    /* top: 60%; */
+    display: none;
+  }
+  .banner-heart {
+    font-size: 2rem;
   }
   .banner-button {
     color: #ff9b04;

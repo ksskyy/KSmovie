@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, json, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { API_KEY, TMDB_BASE_URL } from "../Requests";
-import Requests from "../Requests";
 import { motion } from "framer-motion";
 import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
 import { useDispatch } from "react-redux";
@@ -60,13 +59,18 @@ function Card({ movie, isFav }) {
         <h4 className="movie-title">{truncate(movie.title, 20)}</h4>
         <p>{movie?.vote_average}</p>
       </div>
-      <div className="btn-favourite">
+      <motion.div
+        whileHover={{ scale: 1.2 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        whileTap={{ scale: 0.8 }}
+        className="heart"
+      >
         <FavButton
           movieObj={movie}
           fav={isFav}
           handleFavClick={handleFavClick}
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

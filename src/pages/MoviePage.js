@@ -26,7 +26,7 @@ function MoviePage() {
   }, [id]);
 
   return (
-    <main>
+    <div>
       {movieData ? (
         <div>
           <h2>{movieData.title}</h2>
@@ -38,7 +38,7 @@ function MoviePage() {
       ) : (
         <p>Loading...</p>
       )}
-    </main>
+    </div>
   );
 }
 

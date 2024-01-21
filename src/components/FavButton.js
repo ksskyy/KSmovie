@@ -10,7 +10,7 @@ function FavButton({ movieObj, fav, handleFavClick }) {
   }
 
   return (
-    <div onClick={handleToggleFav} className="heart">
+    <div onClick={handleToggleFav}>
       {fav ? <HiMiniHeart /> : <HiOutlineHeart />}
     </div>
   );

@@ -13,9 +13,9 @@ const Favourite = () => {
 
   const favourites = useSelector((state) => state.favs.movies) || [];
 
-  useEffect(() => {
-    console.log("Favourites:", favourites);
-  }, [favourites]);
+  // useEffect(() => {
+  //   console.log("Favourites:", favourites);
+  // }, [favourites]);
 
   const handleFavClick = (addToFav, movieObj) => {
     if (addToFav) {

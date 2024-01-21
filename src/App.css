@@ -171,9 +171,6 @@ button {
 .movie-list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  /* grid-template-rows: repeat(3, 1fr);
-  grid-auto-flow: dense;
-  overflow: hidden; */
   margin: 2.5rem;
   gap: 1.5rem;
 }
@@ -237,11 +234,27 @@ button {
   opacity: 1;
 }
 .heart {
-  /* position: absolute; */
-  /* bottom: 10%; */
-  /* right: 10%; */
   color: var(--secondary-color);
   cursor: pointer;
+  position: absolute;
+  justify-self: end;
+  align-self: start;
+  margin: 0.25rem;
+}
+@media screen and (max-width: 769px) {
+  .movie-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 553px) {
+  .movie-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 425px) {
+  .movie-list {
+    display: block;
+  }
 }
 /* Footer */
 footer {
@@ -273,98 +286,3 @@ footer {
     transform: rotate(360deg);
   }
 }
-
-.icon-placeholder {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  flex: 40px 0;
-  margin-right: 20px;
-}
-
-.text-placeholder {
-  border-radius: 5px;
-  width: 200px;
-  height: 20px;
-  flex: 1;
-}
-
-.refresh {
-  padding: 10px;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  width: 20px;
-  height: 20px;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-/* body {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(180deg, #0055ff 0%, rgb(0, 153, 255) 100%);
-
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-} */
-
-.background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 300px;
-  background: #fff;
-}
-
-.new {
-  outline: none;
-  border: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  cursor: pointer;
-  position: absolute;
-  top: 18px;
-  right: 15px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: transparent;
-}
-
-/* ul,
-li {
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  padding: 25px;
-  position: absolute;
-  top: 100px;
-  width: 230px;
-} */
-
-/* li {
-  list-style: none;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-} */

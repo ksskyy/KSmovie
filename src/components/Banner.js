@@ -1,34 +1,46 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Banner.css";
-import Requests from "../Requests";
+import Requests, { fetchMovies } from "../Requests";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
+import FavButton from "../components/FavButton";
+import { motion } from "framer-motion";
 import { truncate } from "../utilities/toolbelt";
 
 function Banner() {
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState([]);
+  const [isFav, setIsFav] = useState(false);
 
+  const dispatch = useDispatch();
+  const favoriteMovies = useSelector((state) => state.favs.movies);
+
+  const getBanner = () => {
+    fetchMovies(Requests.fetchTrending)
+      .then((data) => {
+        // console.log(data.results);
+        const randomIndex = Math.floor(Math.random() * data.results.length);
+        setMovie(data.results[randomIndex]);
+        setIsFav(
+          favoriteMovies.some(
+            (favMovie) => favMovie.id === data.results[randomIndex].id
+          )
+        );
+      })
+      .catch((err) => {
+        return err;
+      });
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(Requests.fetchTrending);
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+    getBanner();
+  }, [favoriteMovies]);
 
-        const data = await response.json();
-        if (data.results && data.results.length > 0) {
-          const randomIndex = Math.floor(Math.random() * data.results.length);
-          setMovie(data.results[randomIndex]);
-        } else {
-          console.error("No results found in the API response.");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  function handleFavClick(addToFav, obj) {
+    if (addToFav === true) {
+      dispatch(addFavMovie(obj));
+    } else {
+      dispatch(deleteFavMovie(obj));
+    }
+  }
 
   return (
     <div
@@ -39,18 +51,25 @@ function Banner() {
     >
       {movie && (
         <div className="banner-contents">
-          <h1 className="banner-title">
-            {movie?.title || movie?.name || movie?.original_name}
-
-            {/* <button className="banner-heart">
-              <i class="fa-solid fa-heart-circle-plus"></i>
-            </button> */}
-          </h1>
+          <div className="banner-title">
+            <h1>{movie?.title || movie?.name || movie?.original_name}</h1>
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              whileTap={{ scale: 0.8 }}
+              className="banner-heart"
+            >
+              <FavButton
+                movieObj={movie}
+                fav={isFav}
+                handleFavClick={handleFavClick}
+              />
+            </motion.div>
+          </div>
           <button className="more-info">More Info</button>
           <button className="banner-button">
             <i class="fa-solid fa-circle-play"></i>
           </button>
-          {/* <FontAwesomeIcon icon="fa-solid fa-circle-play" /> */}
           <p className="banner-description">{truncate(movie?.overview, 150)}</p>
         </div>
       )}
