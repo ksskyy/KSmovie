@@ -1,2 +1,2 @@
-const PAGE_NAME = "KS MOVIE";
-export default PAGE_NAME;
+export const PAGE_NAME = "KS MOVIE";
+export const movieStorageName = "movie-favs";

@@ -14,7 +14,9 @@ function Movie({ title, movieList }) {
         {movieList.length === 0 ? (
           <div className="spinner"></div>
         ) : (
-          movieList.map((movie) => <Card key={movie.id} movie={movie} />)
+          movieList.map((movie) => (
+            <Card key={movie.id} movie={movie} isFav={false} />
+          ))
         )}
       </div>
     </section>

@@ -1,13 +1,12 @@
-import { color } from "framer-motion";
 import { HiOutlineHeart, HiMiniHeart } from "react-icons/hi2";
 
-function FavButton({ movieData, fav, handleFavClick }) {
+function FavButton({ movieObj, fav, handleFavClick }) {
   function handleAddFav() {
-    handleFavClick(true, movieData);
+    handleFavClick(true, movieObj);
   }
 
   function handleRemoveFav() {
-    handleFavClick(false, movieData);
+    handleFavClick(false, movieObj);
   }
 
   return (
@@ -15,9 +14,7 @@ function FavButton({ movieData, fav, handleFavClick }) {
       {fav === false ? (
         <HiOutlineHeart className="heart" onClick={handleAddFav} />
       ) : (
-        // <button onClick={handleAddFav}>Add To Favs</button>
         <HiMiniHeart className="heart" onClick={handleRemoveFav} />
-        // <button onClick={handleRemoveFav}>Remove From Favs</button>
       )}
     </>
   );

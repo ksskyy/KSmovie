@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PAGE_NAME from "../global/globals";
+import { PAGE_NAME } from "../global/globals";
 import { useParams } from "react-router-dom";
 import { getMovieById } from "../components/Card";
 import isFav from "../utilities/isFav";
@@ -24,21 +24,21 @@ function MoviePage() {
         alert(err);
       });
   }, [id]);
-  // const { title, poster_path } = movieId;
+
   return (
-    <div>
+    <main>
       {movieData ? (
-        <>
+        <div>
           <h2>{movieData.title}</h2>
           <img
             src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
             alt={movieData.title}
           />
-        </>
+        </div>
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </main>
   );
 }
 

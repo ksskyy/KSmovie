@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import PAGE_NAME from "../global/globals";
+import { PAGE_NAME } from "../global/globals";
 
 const About = () => {
   useEffect(() => {

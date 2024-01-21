@@ -241,6 +241,7 @@ button {
   /* bottom: 10%; */
   /* right: 10%; */
   color: var(--secondary-color);
+  cursor: pointer;
 }
 /* Footer */
 footer {

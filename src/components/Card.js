@@ -20,10 +20,7 @@ function getMovieById(movieId) {
       throw err;
     });
 }
-function Card({ movie, isFav }) {
-  // const [movieList, setmovieList] = useState([]);
-  // const navigate = useNavigate();
-
+function Card({ movie, isFav, handleFavClick }) {
   const dispatch = useDispatch();
 
   function handleFavClick(addToFav, obj) {
@@ -32,6 +29,9 @@ function Card({ movie, isFav }) {
     } else {
       dispatch(deleteFavMovie(obj));
     }
+  }
+  if (!movie || !movie.id) {
+    return null;
   }
 
   return (
@@ -44,14 +44,14 @@ function Card({ movie, isFav }) {
         whileTap={{ scale: 0.9 }}
       >
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
+          src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+          alt={movie?.title}
         />
         <div>
           <Link key={movie.id} to={`/movie/${movie.id}`}>
             <div className="movie-overview">
               <h4>OVERVIEW</h4>
-              <h4>{movie.release_date}</h4>
+              <h4>{movie?.release_date}</h4>
               <p>{truncate(movie?.overview, 80)}</p>
               <button>MORE</button>
             </div>
@@ -59,8 +59,8 @@ function Card({ movie, isFav }) {
         </div>
       </motion.div>
       <div className="movie-info">
-        <h4 className="movie-title">{movie.title}</h4>
-        <p>{movie.vote_average}</p>
+        <h4 className="movie-title">{truncate(movie.title, 20)}</h4>
+        <p>{movie?.vote_average}</p>
       </div>
       <div className="btn-favourite">
         {isFav ? (
