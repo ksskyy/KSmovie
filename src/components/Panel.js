@@ -9,7 +9,7 @@ const Panel = () => {
   const [popular, setPopular] = useState([]);
   const [nowPlaying, setNowPlaying] = useState([]);
   const [topRated, setTopRated] = useState([]);
-  const [uncoming, setUncoming] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
 
   const getMovies = () => {
     fetchMovies(Requests.fetchPopular)
@@ -39,10 +39,10 @@ const Panel = () => {
         return err;
       });
   };
-  const getUncomingMovies = () => {
+  const getUpcomingMovies = () => {
     fetchMovies(Requests.fetchUpcoming)
       .then((data) => {
-        setUncoming(data.results);
+        setUpcoming(data.results);
       })
       .catch((err) => {
         return err;
@@ -52,7 +52,7 @@ const Panel = () => {
     getMovies();
     getNowMovies();
     getTopRatedMovies();
-    getUncomingMovies();
+    getUpcomingMovies();
   }, []);
 
   return (
@@ -62,7 +62,7 @@ const Panel = () => {
           <Tab>Popular</Tab>
           <Tab>NowPlaying</Tab>
           <Tab>TopRated</Tab>
-          <Tab>Uncoming</Tab>
+          <Tab>Upcoming</Tab>
         </TabList>
         <TabPanel>
           <Movie title="Popular" movieList={popular} />
@@ -74,7 +74,7 @@ const Panel = () => {
           <Movie title="Top Rated" movieList={topRated} />
         </TabPanel>
         <TabPanel>
-          <Movie title="Uncoming" movieList={uncoming} />
+          <Movie title="Upcoming" movieList={upcoming} />
         </TabPanel>
       </Tabs>
     </div>

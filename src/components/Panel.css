@@ -1,5 +1,5 @@
 .panel {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 2.5rem);
   font-weight: 500;
   /* margin-left: 2.5rem; */
 }
@@ -16,6 +16,22 @@
 }
 @media screen and (max-width: 689px) {
   .react-tabs__tab-list {
-    display: none;
+    /* display: none; */
+    gap: 0.5rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .react-tabs__tab-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .react-tabs__tab {
+    padding: 0.5rem 2rem;
+  }
+  .react-tabs__tab--selected {
+    border-radius: 5px;
   }
 }

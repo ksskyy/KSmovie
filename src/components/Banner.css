@@ -34,11 +34,12 @@
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 800;
   padding-bottom: 1rem;
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
   z-index: 20;
 }
 .banner-heart {
   font-size: 3rem;
+  margin-right: 1.5rem;
 }
 .more-info {
   position: absolute;

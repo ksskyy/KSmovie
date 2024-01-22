@@ -1,4 +1,4 @@
-import { HiOutlineHeart, HiMiniHeart } from "react-icons/hi2";
+import { PiHeartDuotone, PiHeartFill } from "react-icons/pi";
 
 function FavButton({ movieObj, fav, handleFavClick }) {
   function handleToggleFav() {
@@ -11,7 +11,7 @@ function FavButton({ movieObj, fav, handleFavClick }) {
 
   return (
     <div onClick={handleToggleFav}>
-      {fav ? <HiMiniHeart /> : <HiOutlineHeart />}
+      {fav ? <PiHeartFill /> : <PiHeartDuotone />}
     </div>
   );
 }

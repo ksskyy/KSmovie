@@ -27,27 +27,25 @@ const Favourite = () => {
 
   return (
     <main>
-      <div className="movie-list">
-        <div className="favourite">
-          <h1>Favourite</h1>
-          {favourites.length < 1 ? (
-            <p>No Favourite</p>
-          ) : (
-            <div>
-              {favourites.map((movie) => {
-                return (
-                  <Card
-                    key={movie.id}
-                    movie={movie}
-                    title={movie.title}
-                    isFav={true}
-                    handleFavClick={handleFavClick}
-                  />
-                );
-              })}
-            </div>
-          )}
-        </div>
+      <div className="favourite">
+        <h1>Favourite</h1>
+        {favourites.length < 1 ? (
+          <p>No Favourite</p>
+        ) : (
+          <div className="favourite-movies">
+            {favourites.map((movie) => {
+              return (
+                <Card
+                  key={movie.id}
+                  movie={movie}
+                  title={movie.title}
+                  isFav={true}
+                  handleFavClick={handleFavClick}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     </main>
   );
