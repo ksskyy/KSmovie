@@ -71,7 +71,7 @@ function Card({ movie, isFav }) {
         </div>
       </motion.div>
       {/* <p>{movie?.vote_average}</p> */}
-      <div className="movie-info">
+      <div>
         <h4 className="movie-title">{truncate(movie.title, 20)}</h4>
       </div>
 

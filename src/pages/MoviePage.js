@@ -31,21 +31,24 @@ function MoviePage() {
   }, [id]);
 
   return (
-    <div>
+    <div className="movie-page">
       {movieData ? (
-        <div>
+        <div className="movie-intro">
           <h1>{movieData.title}</h1>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-            alt={movieData.title}
-          />
-          <div>
-            <h2>Genres</h2>
-            <ul>
-              {movieData.genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </ul>
+          <div className="movie-info">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+              alt={movieData.title}
+              className="movie-poster"
+            />
+            <div>
+              <h2>Genres</h2>
+              <ul className="genre">
+                {movieData.genres.map((genre) => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </ul>
+            </div>
           </div>
           <div className="movie-video">
             {movieVideoData ? (

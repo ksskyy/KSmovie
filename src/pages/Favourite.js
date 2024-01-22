@@ -32,7 +32,7 @@ const Favourite = () => {
         {favourites.length < 1 ? (
           <h2>Opps,No Favourite</h2>
         ) : (
-          <div className="favourite-movies">
+          <div className="movie-list">
             {favourites.map((movie) => {
               return (
                 <Card
