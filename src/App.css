@@ -243,6 +243,14 @@ button {
   align-self: start;
   margin: 0.25rem;
 }
+.vote-result {
+  position: absolute;
+  width: 3rem;
+  justify-self: end;
+  align-self: end;
+  margin: 0.25rem;
+}
+
 @media screen and (max-width: 992px) {
   .movie-list {
     grid-template-columns: repeat(5, 1fr);
