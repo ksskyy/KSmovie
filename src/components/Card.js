@@ -52,29 +52,29 @@ function Card({ movie, isFav }) {
               <h4>OVERVIEW</h4>
               <h4>{movie?.release_date}</h4>
               <p>{truncate(movie?.overview, 80)}</p>
-              <button>MORE</button>
             </div>
           </Link>
         </div>
+        <div className="vote-result">
+          <CircularProgressbar
+            value={normalizedVoteAverage}
+            text={`${movie.vote_average * 10}%`}
+            background
+            backgroundPadding={6}
+            styles={buildStyles({
+              backgroundColor: "#282c34",
+              textColor: "#fff",
+              pathColor: "#ff9a04",
+              trailColor: "transparent",
+            })}
+          />
+        </div>
       </motion.div>
       {/* <p>{movie?.vote_average}</p> */}
-      <div className="vote-result">
-        <CircularProgressbar
-          value={normalizedVoteAverage}
-          text={`${movie.vote_average * 10}%`}
-          background
-          backgroundPadding={6}
-          styles={buildStyles({
-            backgroundColor: "#282c34",
-            textColor: "#fff",
-            pathColor: "#ff9a04",
-            trailColor: "transparent",
-          })}
-        />
-      </div>
       <div className="movie-info">
         <h4 className="movie-title">{truncate(movie.title, 20)}</h4>
       </div>
+
       <motion.div
         whileHover={{ scale: 1.2 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}

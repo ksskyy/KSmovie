@@ -195,7 +195,7 @@ button {
 }
 .card-details {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: transform 0.3s ease-in-out;
 }
 
@@ -206,6 +206,7 @@ button {
 }
 
 .movie-overview {
+  top: 0;
   margin: 0;
   position: absolute;
   top: 0;
@@ -221,7 +222,7 @@ button {
   transition: opacity 0.3s ease-in-out;
   font-size: 1rem;
   border-radius: 0.5rem;
-  overflow-y: auto;
+  overflow: hidden;
 }
 .movie-overview h4 {
   font-size: 1rem;
@@ -241,14 +242,18 @@ button {
   position: absolute;
   justify-self: end;
   align-self: start;
-  margin: 0.25rem;
+  margin: 0.5rem;
 }
+
 .vote-result {
   position: absolute;
-  width: 3rem;
-  justify-self: end;
-  align-self: end;
+  width: 2rem;
+  bottom: 0;
+  right: 0;
+  transform: translateY(50%);
   margin: 0.25rem;
+  cursor: none;
+  z-index: 30;
 }
 
 @media screen and (max-width: 992px) {
