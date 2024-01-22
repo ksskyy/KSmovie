@@ -1,11 +1,24 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 
 const Header = () => {
   const [showNav, setshowNav] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsFixed(scrollPosition > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <header className={`header ${showNav ? "show" : ""}`}>
+    <header
+      className={`header ${showNav ? "show" : ""} ${isFixed ? "fixed" : ""}`}
+    >
       <div>
         <Link className="logo" to="/">
           <svg
