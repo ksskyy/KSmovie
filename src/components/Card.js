@@ -62,7 +62,7 @@ function Card({ movie, isFav }) {
             background
             backgroundPadding={6}
             styles={buildStyles({
-              backgroundColor: "#282c34",
+              backgroundColor: "#282c3495",
               textColor: "#fff",
               pathColor: "#ff9a04",
               trailColor: "transparent",
