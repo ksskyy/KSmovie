@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getMovieById } from "../components/Card";
 import YouTube from "react-youtube";
 import Requests, { fetchMovies } from "../Requests";
+import CircularProgressBar from "../components/CircularProgressBar";
 
 import isFav from "../utilities/isFav";
 import Card from "../components/Card";
@@ -51,10 +52,11 @@ function MoviePage() {
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieData?.backdrop_path})`,
         }}
-      ></div>
+      >
+        {movieData && <h1 className="movie-title">{movieData.title}</h1>}
+      </div>
       {movieData ? (
         <div className="movie-intro">
-          <h1 className="movie-title">{movieData.title}</h1>
           <div className="movie-info">
             <img
               src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
@@ -73,6 +75,9 @@ function MoviePage() {
               <div>
                 <h2>Overview</h2>
                 <p>{movieData.overview}</p>
+              </div>
+              <div>
+                <CircularProgressBar voteAverage={movieData.vote_average} />
               </div>
             </div>
           </div>

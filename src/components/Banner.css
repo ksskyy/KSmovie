@@ -29,6 +29,7 @@
   position: absolute;
   top: 55%;
   color: #ff9a04;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 .banner-title h1 {
   font-size: clamp(2rem, 4vw, 6rem);

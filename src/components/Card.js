@@ -6,8 +6,7 @@ import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
 import { useDispatch } from "react-redux";
 import FavButton from "../components/FavButton";
 import { truncate } from "../utilities/toolbelt";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import CircularProgressBar from "../components/CircularProgressBar";
 
 function getMovieById(movieId) {
   return fetch(`${TMDB_BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
@@ -56,23 +55,11 @@ function Card({ movie, isFav }) {
           </Link>
         </div>
         <div className="vote-result">
-          <CircularProgressbar
-            value={normalizedVoteAverage}
-            text={`${movie.vote_average * 10}%`}
-            background
-            backgroundPadding={6}
-            styles={buildStyles({
-              backgroundColor: "#282c3495",
-              textColor: "#fff",
-              pathColor: "#ff9a04",
-              trailColor: "transparent",
-            })}
-          />
+          <CircularProgressBar voteAverage={movie.vote_average} />
         </div>
       </motion.div>
-      {/* <p>{movie?.vote_average}</p> */}
       <div>
-        <h4 className="movies-title">{truncate(movie.title, 20)}</h4>
+        <h4 className="movies-title">{truncate(movie.title, 24)}</h4>
       </div>
 
       <motion.div
