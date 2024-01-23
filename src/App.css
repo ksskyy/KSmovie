@@ -361,7 +361,9 @@ button {
 .genre li {
   margin-right: 2rem;
 }
-
+.movie-vote {
+  width: 4rem;
+}
 /* Footer */
 footer {
   display: flex;

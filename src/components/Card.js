@@ -33,7 +33,7 @@ function Card({ movie, isFav }) {
   if (!movie || !movie.id) {
     return null;
   }
-  const normalizedVoteAverage = (movie.vote_average / 10) * 100;
+
   return (
     <div className="card">
       <motion.div

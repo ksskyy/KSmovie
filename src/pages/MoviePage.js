@@ -76,7 +76,7 @@ function MoviePage() {
                 <h2>Overview</h2>
                 <p>{movieData.overview}</p>
               </div>
-              <div>
+              <div className="movie-vote">
                 <CircularProgressBar voteAverage={movieData.vote_average} />
               </div>
             </div>
