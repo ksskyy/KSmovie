@@ -414,6 +414,7 @@ button {
   .genre,
   .language {
     gap: 1rem;
+    flex-wrap: wrap;
   }
 }
 
