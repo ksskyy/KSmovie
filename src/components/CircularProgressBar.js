@@ -14,6 +14,7 @@ const CircularProgressBar = ({ voteAverage }) => {
       styles={buildStyles({
         backgroundColor: "#282c3495",
         textColor: "#fff",
+        textSize: "2rem",
         pathColor: "#ff9a04",
         trailColor: "transparent",
       })}

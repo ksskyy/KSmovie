@@ -6,6 +6,8 @@ import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
 import FavButton from "../components/FavButton";
 import { motion } from "framer-motion";
 import { truncate } from "../utilities/toolbelt";
+import { Link } from "react-router-dom";
+import { FaRegPlayCircle } from "react-icons/fa";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
@@ -66,10 +68,13 @@ function Banner() {
               />
             </motion.div>
           </div>
-          <button className="more-info">More Info</button>
-          <button className="banner-button">
+          <Link key={movie.id} to={`/movie/${movie.id}`} className="more-info">
+            More Info
+          </Link>
+
+          {/* <button className="banner-button">
             <i class="fa-solid fa-circle-play"></i>
-          </button>
+          </button> */}
           <p className="banner-description">{truncate(movie?.overview, 150)}</p>
         </div>
       )}

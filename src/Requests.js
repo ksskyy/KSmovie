@@ -10,6 +10,7 @@ const Requests = {
   fetchVideos: (movieId) => {
     return `${TMDB_BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
   },
+  fetchSearchResult: `${TMDB_BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US`,
 };
 
 const fetchMovies = (requestUrl) => {

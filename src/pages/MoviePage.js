@@ -6,13 +6,18 @@ import YouTube from "react-youtube";
 import Modal from "react-modal";
 import Requests, { fetchMovies } from "../Requests";
 import CircularProgressBar from "../components/CircularProgressBar";
-import { ImPlay2 } from "react-icons/im";
+import { FaRegPlayCircle } from "react-icons/fa";
+import { FaWindowClose } from "react-icons/fa";
 
 import isFav from "../utilities/isFav";
 import Card from "../components/Card";
 import { useSelector } from "react-redux";
+import { color } from "framer-motion";
 
 const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.65)",
+  },
   content: {
     top: "50%",
     left: "50%",
@@ -21,8 +26,10 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     background: "#282c34",
-    padding: "2rem",
+    padding: "1rem",
     border: "3px solid #ff9a04",
+    width: "80%",
+    maxWidth: "800px",
   },
 };
 
@@ -98,12 +105,23 @@ function MoviePage() {
                 </ul>
               </div>
               <div>
+                <h2>Language</h2>
+                <ul className="language">
+                  {movieData.spoken_languages.map((languages) => (
+                    <li key={languages.id}>{languages.name}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
                 <h2>Overview</h2>
                 <p>{movieData.overview}</p>
               </div>
               <div className="movie-play">
                 <div>
-                  <ImPlay2 onClick={openModal} className="play-button" />
+                  <FaRegPlayCircle
+                    onClick={openModal}
+                    className="play-button"
+                  />
                 </div>
                 {/* <h3>User Score</h3> */}
                 <div className="movie-vote">
@@ -130,8 +148,22 @@ function MoviePage() {
         style={customStyles}
         contentLabel="Video Modal"
       >
-        <button onClick={closeModal}>Close</button>
-        {movieVideoData && <YouTube videoId={movieVideoData.key} />}
+        {/* <button onClick={closeModal}>Close</button> */}
+        <FaWindowClose onClick={closeModal} />
+        {movieVideoData && (
+          // <div style={customStyles.videoContainer}>
+          // <YouTube videoId={movieVideoData.key} opts={opts} />
+          // </div>
+          <div className="video-container">
+            <YouTube
+              videoId={movieVideoData.key}
+              opts={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </div>
+        )}
       </Modal>
     </div>
   );
