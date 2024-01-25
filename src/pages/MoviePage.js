@@ -149,22 +149,25 @@ function MoviePage() {
           <div className="movie-casts">
             <h2>Top Casts</h2>
             {movieCasts && movieCasts.length > 0 ? (
-              <ul ref={ref}>
-                {movieCasts.slice(0, 12).map((cast) => {
-                  // console.log("Cast ID:", cast.id);
-                  return (
-                    <li key={cast.id}>
-                      {cast.profile_path && (
-                        <img
-                          src={`https://image.tmdb.org/t/p/w154/${cast.profile_path}`}
-                          alt={cast.name}
-                          className=""
-                        />
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+              <div className="cast-scroller">
+                <ul ref={ref}>
+                  {movieCasts.slice(0, 15).map((cast) => {
+                    // console.log("Cast ID:", cast.id);
+                    return (
+                      <li key={cast.id}>
+                        {cast.profile_path && (
+                          <img
+                            src={`https://image.tmdb.org/t/p/w154/${cast.profile_path}`}
+                            alt={cast.name}
+                            className=""
+                          />
+                        )}
+                        <p>{cast.name}</p>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             ) : (
               <p>No cast data available.</p>
             )}

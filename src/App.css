@@ -357,7 +357,7 @@ button {
 }
 
 .movie-poster {
-  width: 15rem;
+  width: 18rem;
   height: 100%;
   border-radius: 5px;
   align-self: center;
@@ -366,9 +366,10 @@ button {
   margin-top: 0.5rem;
   h2 {
     margin: 0.5rem 0;
+    font-size: 2rem;
   }
   h3 {
-    margin: 0.75rem 0;
+    margin: 0.75rem 0 0 0;
   }
   p {
     margin: 0.5rem;
@@ -416,7 +417,7 @@ button {
 .video-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio (height is 56.25% of width) */
+  padding-top: 56.25%;
 }
 
 .video-container iframe {
@@ -429,42 +430,58 @@ button {
 
 .movie-casts {
   margin: 1rem 10rem;
-  ul {
-    display: flex;
-    list-style: none;
-    height: 16rem;
-    overflow-x: scroll;
-    flex: 0 0 600px;
-    margin: 0 auto;
-  }
+  .cast-scroller {
+    position: relative;
+    ul {
+      display: flex;
+      list-style: none;
+      height: 16rem;
+      overflow-x: scroll;
+      flex: 0 0 600px;
+      margin: 0 auto;
+    }
 
-  ::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
-    background: #fff3;
-    -webkit-border-radius: 1ex;
-  }
+    ::-webkit-scrollbar {
+      height: 5px;
+      width: 5px;
+      background: #fff3;
+      -webkit-border-radius: 1ex;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
-    -webkit-border-radius: 1ex;
-  }
+    ::-webkit-scrollbar-thumb {
+      background: var(--secondary-color);
+      -webkit-border-radius: 1ex;
+    }
 
-  ::-webkit-scrollbar-corner {
-    background: #fff3;
-  }
+    ::-webkit-scrollbar-corner {
+      background: #fff3;
+    }
 
-  li {
-    /* flex: 0 0 200px; */
-    /* background: var(--secondary-color); */
-    margin: 0 20px 0 0;
-    img {
-      border-radius: 5px;
+    li {
+      margin: 0 2rem 0 0;
+      img {
+        border-radius: 5px;
+        max-width: 120px;
+        height: auto;
+      }
+      p {
+        text-align: center;
+      }
+    }
+
+    li:last-of-type {
+      margin: 0;
     }
   }
-
-  li:last-of-type {
-    margin: 0;
+  .cast-scroller::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0rem;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #ff9b0479);
+    pointer-events: none;
   }
 }
 
