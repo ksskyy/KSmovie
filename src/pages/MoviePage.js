@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { PAGE_NAME } from "../global/globals";
 import { useParams } from "react-router-dom";
 import { getMovieById } from "../components/Card";
@@ -41,27 +41,38 @@ function MoviePage() {
 
   const { id } = useParams();
   const [movieData, setMovieData] = useState();
-  const [movieVideoData, setVideoMovieData] = useState();
+  const [movieVideoData, setMovieVideoData] = useState();
+  const [movieCasts, setMovieCasts] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
     getMovieById(id)
       .then((data) => {
         setMovieData(data);
         // console.log("Video data:", data.videos);
-        // setVideoMovieData(data.videos || []);
-        console.log(data);
+        // setMovieVideoData(data.videos || []);
+        // console.log(data);
         if (data.id) {
           fetchMovies(Requests.fetchVideos(data.id))
             .then((videos) => {
               if (videos.results && videos.results.length > 0) {
                 const videoData = videos.results[0]; // Assuming you want the first video
-                setVideoMovieData(videoData);
+                setMovieVideoData(videoData);
               }
             })
             .catch((err) => {
               return err;
             });
+        }
+        if (data.id) {
+          fetchMovies(Requests.fetchCasts(data.id)).then((casts) => {
+            console.log("Casts Data:", casts);
+            if (casts.cast && casts.cast.length > 0) {
+              setMovieCasts(casts.cast);
+              console.log("Casts Data cast:", casts.cast);
+            }
+          });
         }
       })
       .catch((err) => {
@@ -97,24 +108,29 @@ function MoviePage() {
             />
             <div>
               <div>
-                <h2>Genres</h2>
-                <ul className="genre">
-                  {movieData.genres.map((genre) => (
-                    <li key={genre.id}>{genre.name}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h2>Language</h2>
-                <ul className="language">
-                  {movieData.spoken_languages.map((languages) => (
-                    <li key={languages.id}>{languages.name}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h2>Overview</h2>
-                <p>{movieData.overview}</p>
+                <div className="genre-wrapper">
+                  {movieData && <h2>{movieData.title}</h2>}
+                  <span className="date">{movieData.release_date}</span>
+                  <span className="runtime">{movieData.runtime} minutes</span>
+                  <h3>Genres</h3>
+                  <span className="genre">
+                    {movieData.genres.map((genre) => (
+                      <p key={genre.id}>{genre.name}</p>
+                    ))}
+                  </span>
+                  <div>
+                    <h3>Language</h3>
+                    <span className="language">
+                      {movieData.spoken_languages.map((languages) => (
+                        <p key={languages.id}>{languages.name}</p>
+                      ))}
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <h3>Overview</h3>
+                  <p>{movieData.overview}</p>
+                </div>
               </div>
               <div className="movie-play">
                 <div>
@@ -126,18 +142,33 @@ function MoviePage() {
                 {/* <h3>User Score</h3> */}
                 <div className="movie-vote">
                   <CircularProgressBar voteAverage={movieData.vote_average} />
-                  {/* <button onClick={openModal}>Play Video</button> */}
                 </div>
               </div>
             </div>
           </div>
-          {/* <div className="movie-video">
-            {movieVideoData ? (
-              <YouTube videoId={movieVideoData.key} />
+          <div className="movie-casts">
+            <h2>Top Casts</h2>
+            {movieCasts && movieCasts.length > 0 ? (
+              <ul ref={ref}>
+                {movieCasts.slice(0, 12).map((cast) => {
+                  // console.log("Cast ID:", cast.id);
+                  return (
+                    <li key={cast.id}>
+                      {cast.profile_path && (
+                        <img
+                          src={`https://image.tmdb.org/t/p/w154/${cast.profile_path}`}
+                          alt={cast.name}
+                          className=""
+                        />
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             ) : (
-              <div className="spinner"></div>
+              <p>No cast data available.</p>
             )}
-          </div> */}
+          </div>
         </div>
       ) : (
         <div className="spinner"></div>
