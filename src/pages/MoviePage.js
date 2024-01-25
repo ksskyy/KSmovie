@@ -69,8 +69,14 @@ function MoviePage() {
           fetchMovies(Requests.fetchCasts(data.id)).then((casts) => {
             console.log("Casts Data:", casts);
             if (casts.cast && casts.cast.length > 0) {
-              setMovieCasts(casts.cast);
-              console.log("Casts Data cast:", casts.cast);
+              // setMovieCasts(casts.cast);
+              // console.log("Casts Data cast:", casts.cast);
+              const filteredCasts = casts.cast.filter(
+                (cast) =>
+                  cast.profile_path !== null && cast.profile_path.length > 0
+              );
+
+              setMovieCasts(filteredCasts);
             }
           });
         }
