@@ -33,7 +33,7 @@ const customStyles = {
   },
 };
 
-function MoviePage() {
+const MoviePage = () => {
   // const favs = useSelector((state) => state.favs.items);
   useEffect(() => {
     document.title = `${PAGE_NAME} - Detail`;
@@ -207,6 +207,6 @@ function MoviePage() {
       </Modal>
     </div>
   );
-}
+};
 
 export default MoviePage;

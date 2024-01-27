@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 function searchMovie() {
+  let searchMovieFrom = localStorage.getItem(searchMovie);
+
   const initialState = {
-    result: null,
+    result: searchMovie(),
   };
 }
 

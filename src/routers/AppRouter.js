@@ -18,6 +18,7 @@ function AppRouter() {
           <Route path="/about" element={<About />} />
           <Route path="/movie/:id" element={<MoviePage />} />
           <Route path="/favourite" element={<Favourite />} />
+          {/* <Route path="/search" element={<Search />} /> */}
         </Routes>
       </main>
 
