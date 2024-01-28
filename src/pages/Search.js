@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import Requests, { fetchMovies } from "../Requests";
-import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import { PAGE_NAME } from "../global/globals";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
+import { useSelector } from "react-redux";
 
 const Search = () => {
   const [searchResult, setSearchResult] = useState([]);
   const { query } = useParams();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     document.title = `${PAGE_NAME}-Search`;
