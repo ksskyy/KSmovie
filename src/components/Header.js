@@ -6,10 +6,7 @@ import SearchBar from "./SearchBar";
 const Header = () => {
   const [showNav, setshowNav] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  const [searchInput, setSearchInput] = useState("");
-  const handleSearchInputChange = (input) => {
-    setSearchInput(input);
-  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -20,6 +17,7 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <header
       className={`header ${showNav ? "show" : ""} ${isFixed ? "fixed" : ""}`}
@@ -45,8 +43,10 @@ const Header = () => {
           <p className="logo-title">KS Movie</p>
         </Link>
       </div>
-      <SearchBar searchInputChange={handleSearchInputChange} />
       <Nav />
+      <div className="search">
+        <SearchBar />
+      </div>
       <div
         className="mobile"
         onClick={() => {
