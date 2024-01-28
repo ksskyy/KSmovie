@@ -1,10 +1,15 @@
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   const [showNav, setshowNav] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const handleSearchInputChange = (input) => {
+    setSearchInput(input);
+  };
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -40,6 +45,7 @@ const Header = () => {
           <p className="logo-title">KS Movie</p>
         </Link>
       </div>
+      <SearchBar searchInputChange={handleSearchInputChange} />
       <Nav />
       <div
         className="mobile"

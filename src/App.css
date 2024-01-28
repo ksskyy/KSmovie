@@ -498,7 +498,10 @@ button {
     flex-wrap: wrap;
   }
 }
-
+/* Search */
+.search-result {
+  margin-top: 7rem;
+}
 /* Footer */
 footer {
   display: flex;

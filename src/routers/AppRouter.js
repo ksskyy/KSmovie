@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Favourite from "../pages/Favourite";
 import MoviePage from "../pages/MoviePage";
+import Search from "../pages/Search";
 // import Banner from "../components/Banner";
 
 function AppRouter() {
@@ -18,7 +19,7 @@ function AppRouter() {
           <Route path="/about" element={<About />} />
           <Route path="/movie/:id" element={<MoviePage />} />
           <Route path="/favourite" element={<Favourite />} />
-          {/* <Route path="/search" element={<Search />} /> */}
+          <Route path="/search/:query" element={<Search />} />
         </Routes>
       </main>
 
