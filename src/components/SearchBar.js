@@ -2,15 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const SearchBar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
 
-  const handleIconClick = () => {
-    setIsSearchVisible(!isSearchVisible);
-  };
+  // const handleIconClick = () => {
+  //   setIsSearchVisible(!isSearchVisible);
+  // };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -18,12 +19,23 @@ const SearchBar = () => {
   };
   const handleEnter = (e) => {
     if (e.key === "Enter") {
-      navigate(`/search/${searchInput}`);
+      navigate(`/search/${searchInput.trim()}`);
     }
   };
   return (
     <div className="search-bar">
-      <div className={`search-container ${isSearchVisible ? "visible" : ""}`}>
+      <div
+        className={`search-container ${isSearchVisible ? "visible" : ""}`}
+        onMouseEnter={() => setIsSearchVisible(true)}
+        // onMouseLeave={() => {
+        //   setIsSearchVisible(false);
+        // }}
+        onMouseLeave={() => {
+          setTimeout(() => {
+            setIsSearchVisible(false);
+          }, 1000);
+        }}
+      >
         <label htmlFor="search-input" className="sr-only">
           Search Movie...
         </label>
@@ -37,12 +49,21 @@ const SearchBar = () => {
               onKeyDown={handleEnter}
               value={searchInput}
               className="search-input"
-              initial={{ opacity: 0, width: "3rem" }}
+              initial={{ opacity: 0, width: "2rem" }}
               animate={{ opacity: 0.7, width: "12.25rem" }}
-              transition={{ duration: 0.5 }}
+              exit={{ opacity: 0, width: "2rem" }}
+              transition={{ duration: 0.7 }}
             />
           )}
-          <FaSearch className="search-icon" onClick={handleIconClick} />
+          <motion.div whileTap={{ scale: 0.9 }}>
+            {searchInput.length > 0 ? (
+              <Link to={`/search/${searchInput.trim()}`}>
+                <FaSearch className="search-icon" />
+              </Link>
+            ) : (
+              <FaSearch className="search-icon" />
+            )}
+          </motion.div>
         </div>
       </div>
     </div>
