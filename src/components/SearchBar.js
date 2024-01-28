@@ -27,16 +27,17 @@ const SearchBar = () => {
           Search Movie...
         </label>
         <div className="input-container">
-          <input
-            id="search-input"
-            type="search"
-            placeholder="Search Movie..."
-            onChange={handleChange}
-            onKeyDown={handleEnter}
-            value={searchInput}
-            className="search-input"
-          />
-
+          {isSearchVisible && (
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search Movie..."
+              onChange={handleChange}
+              onKeyDown={handleEnter}
+              value={searchInput}
+              className="search-input"
+            />
+          )}
           <FaSearch className="search-icon" onClick={handleIconClick} />
         </div>
       </div>

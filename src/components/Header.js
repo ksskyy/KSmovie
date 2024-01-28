@@ -43,10 +43,10 @@ const Header = () => {
           <p className="logo-title">KS Movie</p>
         </Link>
       </div>
-      <Nav />
       <div className="search">
         <SearchBar />
       </div>
+      <Nav />
       <div
         className="mobile"
         onClick={() => {

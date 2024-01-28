@@ -512,6 +512,7 @@ button {
 .search-bar {
   display: flex;
   align-items: center;
+  justify-content: end;
   opacity: 0.7;
 }
 
@@ -561,7 +562,7 @@ button {
   font-size: 1.5rem;
   transition: opacity 0.3s ease;
   color: var(--secondary-color);
-  opacity: 0.7;
+  opacity: 0.6;
   z-index: 20;
 }
 .search-icon:hover {
