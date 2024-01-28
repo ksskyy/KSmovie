@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const SearchBar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
@@ -28,7 +29,7 @@ const SearchBar = () => {
         </label>
         <div className="input-container">
           {isSearchVisible && (
-            <input
+            <motion.input
               id="search-input"
               type="search"
               placeholder="Search Movie..."
@@ -36,6 +37,9 @@ const SearchBar = () => {
               onKeyDown={handleEnter}
               value={searchInput}
               className="search-input"
+              initial={{ opacity: 0, width: "3rem" }}
+              animate={{ opacity: 0.7, width: "12.25rem" }}
+              transition={{ duration: 0.5 }}
             />
           )}
           <FaSearch className="search-icon" onClick={handleIconClick} />
