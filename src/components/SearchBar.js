@@ -7,24 +7,22 @@ const SearchBar = ({ searchInputChange }) => {
   const handleChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
-    console.log(setSearchInput);
     searchInputChange(e.target.value);
   };
 
   return (
     <div>
-      <Link to={`/search/${searchInput}`}>
-        <form>
-          <input
-            type="search"
-            placeholder="Enter the Title of Movie"
-            onChange={handleChange}
-            value={searchInput}
-          />
-
+      <form>
+        <input
+          type="search"
+          placeholder="Enter the Title of Movie"
+          onChange={handleChange}
+          value={searchInput}
+        />
+        <Link to={`/search/${searchInput}`}>
           <button type="submit">Search</button>
-        </form>
-      </Link>
+        </Link>
+      </form>
     </div>
   );
 };

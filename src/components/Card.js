@@ -41,10 +41,14 @@ function Card({ movie, isFav }) {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
-          alt={movie?.title}
-        />
+        {movie.poster_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+            alt={movie?.title}
+          />
+        ) : (
+          <div className="no-poster">No Poster Available</div>
+        )}
         <div>
           <Link key={movie.id} to={`/movie/${movie.id}`}>
             <div className="movie-overview">

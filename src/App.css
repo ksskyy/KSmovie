@@ -205,22 +205,28 @@ button {
   transition: transform 0.3s ease-in-out;
   /* height: 300px; */
   /* height: 60%; */
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  .no-poster {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 .card-details::before {
   content: "";
   display: block;
   padding-top: 150%; /* Adjust this value based on your image aspect ratio */
-}
-
-.card-details img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0.5rem;
 }
 
 .movie-overview {

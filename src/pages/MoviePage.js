@@ -57,7 +57,7 @@ const MoviePage = () => {
           fetchMovies(Requests.fetchVideos(data.id))
             .then((videos) => {
               if (videos.results && videos.results.length > 0) {
-                const videoData = videos.results[0]; // Assuming you want the first video
+                const videoData = videos.results[0];
                 setMovieVideoData(videoData);
               }
             })
