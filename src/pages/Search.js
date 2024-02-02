@@ -19,7 +19,7 @@ const Search = () => {
     if (query) {
       fetchMovies(Requests.fetchSearchResult(query))
         .then((data) => {
-          console.log(data.results);
+          // console.log(data.results);
           const resultsWithFavStatus = data.results.map((result) => {
             const isFav = favourites.some((fav) => fav.id === result.id);
             return { ...result, isFav };

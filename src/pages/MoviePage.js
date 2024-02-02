@@ -36,7 +36,7 @@ const customStyles = {
 const MoviePage = () => {
   // const favs = useSelector((state) => state.favs.items);
   useEffect(() => {
-    document.title = `${PAGE_NAME} - Detail`;
+    document.title = `${PAGE_NAME} - Movie Details`;
   }, []);
 
   const { id } = useParams();
@@ -67,7 +67,7 @@ const MoviePage = () => {
         }
         if (data.id) {
           fetchMovies(Requests.fetchCasts(data.id)).then((casts) => {
-            console.log("Casts Data:", casts);
+            // console.log("Casts Data:", casts);
             if (casts.cast && casts.cast.length > 0) {
               // setMovieCasts(casts.cast);
               // console.log("Casts Data cast:", casts.cast);
