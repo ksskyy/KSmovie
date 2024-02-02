@@ -179,7 +179,23 @@ a {
 button {
   all: unset;
 }
+.movies-container {
+  position: relative;
 
+  h2 {
+    color: #ff9b0446;
+    font-size: 2.5rem;
+    writing-mode: vertical-rl;
+    position: sticky;
+    top: 20rem;
+    right: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: 100%;
+    margin: 0;
+    height: 0;
+  }
+}
 .movie-list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -320,6 +336,9 @@ button {
     text-transform: uppercase;
     font-size: 2.5rem;
   }
+  h2 {
+    margin-left: 2.5rem;
+  }
 }
 
 /* MoviePage */
@@ -331,7 +350,7 @@ button {
   top: 0;
   object-fit: contain;
   background-size: cover;
-  background-position: start center;
+  background-position: center;
   height: 50vh;
   width: 100%;
   position: relative;
@@ -530,6 +549,9 @@ button {
 /* Search */
 .search-result {
   margin-top: 7rem;
+  h1 {
+    margin-left: 2.5rem;
+  }
 }
 .search-bar {
   display: flex;

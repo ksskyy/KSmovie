@@ -9,12 +9,9 @@ import CircularProgressBar from "../components/CircularProgressBar";
 import { FaRegPlayCircle } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 import { motion } from "framer-motion";
-
 import isFav from "../utilities/isFav";
 import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
-import Card from "../components/Card";
 import { useDispatch, useSelector } from "react-redux";
-import { color } from "framer-motion";
 import FavButton from "../components/FavButton";
 
 const customStyles = {
