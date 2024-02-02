@@ -8,11 +8,14 @@ import Requests, { fetchMovies } from "../Requests";
 import CircularProgressBar from "../components/CircularProgressBar";
 import { FaRegPlayCircle } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 import isFav from "../utilities/isFav";
+import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
 import Card from "../components/Card";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { color } from "framer-motion";
+import FavButton from "../components/FavButton";
 
 const customStyles = {
   overlay: {
@@ -44,7 +47,11 @@ const MoviePage = () => {
   const [movieVideoData, setMovieVideoData] = useState();
   const [movieCasts, setMovieCasts] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFav, setIsFav] = useState(false);
   const ref = useRef(null);
+
+  const dispatch = useDispatch();
+  const favoriteMovies = useSelector((state) => state.favs.movies);
 
   useEffect(() => {
     getMovieById(id)
@@ -53,6 +60,7 @@ const MoviePage = () => {
         // console.log("Video data:", data.videos);
         // setMovieVideoData(data.videos || []);
         // console.log(data);
+        setIsFav(favoriteMovies.some((favMovie) => favMovie.id === data.id));
         if (data.id) {
           fetchMovies(Requests.fetchVideos(data.id))
             .then((videos) => {
@@ -84,7 +92,7 @@ const MoviePage = () => {
       .catch((err) => {
         return err;
       });
-  }, [id]);
+  }, [id, favoriteMovies]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -93,6 +101,14 @@ const MoviePage = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  function handleFavClick(addToFav, obj) {
+    if (addToFav === true) {
+      dispatch(addFavMovie(obj));
+    } else {
+      dispatch(deleteFavMovie(obj));
+    }
+  }
 
   return (
     <div className="movie-page">
@@ -115,7 +131,27 @@ const MoviePage = () => {
             <div>
               <div>
                 <div className="genre-wrapper">
-                  {movieData && <h2>{movieData.title}</h2>}
+                  {movieData && (
+                    <div className="movie-title-fav">
+                      <h2>{movieData.title}</h2>
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 10,
+                        }}
+                        whileTap={{ scale: 0.8 }}
+                        className="movie-single-heart"
+                      >
+                        <FavButton
+                          movieObj={movieData}
+                          fav={isFav}
+                          handleFavClick={handleFavClick}
+                        />
+                      </motion.div>
+                    </div>
+                  )}
                   <span className="date">{movieData.release_date}</span>
                   <span className="runtime">{movieData.runtime} minutes</span>
                   <h3>Genres</h3>

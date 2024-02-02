@@ -388,7 +388,17 @@ button {
   span {
     ::before {
       content: "|";
-      color: #ff9a04;
+      color: var(--secondary-color);
+    }
+  }
+  .movie-title-fav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .movie-single-heart {
+      font-size: 2rem;
+      margin-left: 1rem;
+      color: var(--secondary-color);
     }
   }
   .date,

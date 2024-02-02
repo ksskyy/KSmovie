@@ -24,7 +24,7 @@ const Search = () => {
             const isFav = favourites.some((fav) => fav.id === result.id);
             return { ...result, isFav };
           });
-          console.log("Result with Fav Status:", resultsWithFavStatus);
+          // console.log("Result with Fav Status:", resultsWithFavStatus);
           setSearchResult(resultsWithFavStatus);
         })
         .catch((err) => {
