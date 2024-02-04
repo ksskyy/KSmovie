@@ -34,7 +34,9 @@ const Search = () => {
   }, [query, favourites]);
 
   return (
-    <main>
+    <div>
+      {query && searchResult.length === 0 && <div>No results found</div>}
+      {!query && <div>You haven't enter a movie...</div>}
       <div className="search-result">
         <h1>Search Result</h1>
         {searchResult && searchResult.length > 0 ? (
@@ -49,7 +51,7 @@ const Search = () => {
           <h2>Opps,No Movie Matches </h2>
         )}
       </div>
-    </main>
+    </div>
   );
 };
 

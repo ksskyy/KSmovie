@@ -19,7 +19,9 @@ const SearchBar = () => {
   };
   const handleEnter = (e) => {
     if (e.key === "Enter") {
-      navigate(`/search/${searchInput.trim()}`);
+      if (searchInput.trim().length > 0) {
+        navigate(`/search/${searchInput.trim()}`);
+      }
     }
   };
   return (
@@ -56,7 +58,7 @@ const SearchBar = () => {
             />
           )}
           <motion.div whileTap={{ scale: 0.9 }}>
-            {searchInput.length > 0 ? (
+            {searchInput.trim().length > 0 ? (
               <Link to={`/search/${searchInput.trim()}`}>
                 <FaSearch className="search-icon" />
               </Link>
