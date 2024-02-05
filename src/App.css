@@ -175,6 +175,10 @@ a {
       font-size: 2rem;
       cursor: pointer;
       color: var(--secondary-color);
+      transition: transform 0.3s ease-in-out;
+    }
+    svg:active {
+      transform: rotate(90deg);
     }
   }
 }
