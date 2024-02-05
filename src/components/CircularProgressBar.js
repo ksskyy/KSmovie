@@ -8,7 +8,7 @@ const CircularProgressBar = ({ voteAverage }) => {
   return (
     <CircularProgressbar
       value={normalizedVoteAverage}
-      text={`${Math.round(voteAverage * 10)}%`}
+      text={normalizedVoteAverage ? `${Math.round(voteAverage * 10)}%` : "N/A"}
       background
       backgroundPadding={6}
       styles={buildStyles({
