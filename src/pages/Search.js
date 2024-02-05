@@ -34,23 +34,25 @@ const Search = () => {
   }, [query, favourites]);
 
   return (
-    <div>
-      {query && searchResult.length === 0 && <div>No results found</div>}
-      {!query && <div>You haven't enter a movie...</div>}
-      <div className="search-result">
-        <h1>Search Result</h1>
-        {searchResult && searchResult.length > 0 ? (
-          <div className="movie-list">
-            {searchResult.map((result) => {
-              return (
-                <Card key={result.id} movie={result} isFav={result.isFav} />
-              );
-            })}
-          </div>
-        ) : (
-          <h2>Opps,No Movie Matches </h2>
-        )}
-      </div>
+    <div className="search-result">
+      <h1>Search Result</h1>
+      {query ? (
+        <div>
+          {searchResult && searchResult.length > 0 ? (
+            <div className="movie-list">
+              {searchResult.map((result) => {
+                return (
+                  <Card key={result.id} movie={result} isFav={result.isFav} />
+                );
+              })}
+            </div>
+          ) : (
+            <h2>Opps,No Movie Matches </h2>
+          )}
+        </div>
+      ) : (
+        <div>You haven't entered a movie...</div>
+      )}
     </div>
   );
 };

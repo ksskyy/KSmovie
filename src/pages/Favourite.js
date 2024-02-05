@@ -26,28 +26,26 @@ const Favourite = () => {
   };
 
   return (
-    <main>
-      <div className="favourite">
-        <h1>Favourite</h1>
-        {favourites.length < 1 ? (
-          <h2>Opps,No Favourite</h2>
-        ) : (
-          <div className="movie-list">
-            {favourites.map((movie) => {
-              return (
-                <Card
-                  key={movie.id}
-                  movie={movie}
-                  title={movie.title}
-                  isFav={true}
-                  handleFavClick={handleFavClick}
-                />
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </main>
+    <div className="favourite">
+      <h1>Favourite</h1>
+      {favourites.length < 1 ? (
+        <h2>Opps,No Favourite</h2>
+      ) : (
+        <div className="movie-list">
+          {favourites.map((movie) => {
+            return (
+              <Card
+                key={movie.id}
+                movie={movie}
+                title={movie.title}
+                isFav={true}
+                handleFavClick={handleFavClick}
+              />
+            );
+          })}
+        </div>
+      )}
+    </div>
   );
 };
 
