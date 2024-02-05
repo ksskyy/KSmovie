@@ -22,6 +22,15 @@ function getMovieById(movieId) {
 }
 function Card({ movie, isFav }) {
   const dispatch = useDispatch();
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsClicked(false);
+  };
 
   function handleFavClick(addToFav, obj) {
     if (addToFav === true) {
@@ -39,7 +48,11 @@ function Card({ movie, isFav }) {
       <motion.div
         className="card-details"
         whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        animate={{ scale: isClicked ? 1.1 : 1 }}
+        onTap={handleClick}
+        onMouseLeave={handleMouseLeave}
+        // whileTap={{ scale: 1.1 }}
+        // whileTap={{ scale: [1, 1.1, 0.9] }}
       >
         {movie.poster_path ? (
           <img
@@ -50,13 +63,18 @@ function Card({ movie, isFav }) {
           <div className="no-poster">No Poster Available</div>
         )}
         <div>
-          <Link key={movie.id} to={`/movie/${movie.id}`}>
-            <div className="movie-overview">
-              <h4>OVERVIEW</h4>
-              <h4>{movie?.release_date}</h4>
-              <p>{truncate(movie?.overview, 80)}</p>
-            </div>
-          </Link>
+          <div className="movie-overview">
+            <h4>OVERVIEW</h4>
+            <p className="date">{movie?.release_date}</p>
+            <p>{truncate(movie?.overview, 80)}</p>
+            <Link
+              key={movie.id}
+              to={`/movie/${movie.id}`}
+              className="more-info"
+            >
+              VIEW MORE
+            </Link>
+          </div>
         </div>
         <div className="vote-result">
           <CircularProgressBar voteAverage={movie.vote_average} />
