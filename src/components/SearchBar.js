@@ -52,7 +52,7 @@ const SearchBar = () => {
               value={searchInput}
               className="search-input"
               initial={{ opacity: 0, width: "2rem" }}
-              animate={{ opacity: 0.7, width: "12.15rem" }}
+              animate={{ opacity: 0.7, width: "10.35rem" }}
               exit={{ opacity: 0, width: "2rem" }}
               transition={{ duration: 0.7 }}
             />
