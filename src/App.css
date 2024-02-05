@@ -149,7 +149,7 @@ a {
     justify-items: center;
     align-items: center;
     position: fixed;
-    top: 3.7rem;
+    top: 0rem;
     right: -300px;
     width: 200px;
     height: 100vh;
@@ -157,7 +157,9 @@ a {
     box-shadow: 0 40px 60px #282c3476;
     padding: 40px 0 0 10px;
     transition: 0.3s ease-in-out;
+    margin: 0;
     li {
+      top: 5rem;
       margin-bottom: 2rem;
     }
   }
@@ -168,9 +170,11 @@ a {
   .mobile {
     display: block;
     padding: 1.19rem 0;
-    i {
+    z-index: 30;
+    svg {
       font-size: 2rem;
       cursor: pointer;
+      color: var(--secondary-color);
     }
   }
 }

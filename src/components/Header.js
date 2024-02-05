@@ -2,6 +2,8 @@ import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import SearchBar from "./SearchBar";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { CgClose } from "react-icons/cg";
 
 const Header = () => {
   const [showNav, setshowNav] = useState(false);
@@ -55,7 +57,7 @@ const Header = () => {
           setshowNav(!showNav);
         }}
       >
-        <i className={`${showNav ? "fas fa-times" : "fas fa-bars"}`}></i>
+        {showNav ? <CgClose /> : <RxHamburgerMenu />}
       </div>
     </header>
   );
