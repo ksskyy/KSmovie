@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import SearchBar from "./SearchBar";
@@ -6,17 +6,27 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { CgClose } from "react-icons/cg";
 
 const Header = () => {
-  const [showNav, setshowNav] = useState(false);
+  const [showNav, setShowNav] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+  const navRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsFixed(scrollPosition > 0);
     };
+
+    const handleOutsideClick = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setShowNav(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
+    document.addEventListener("click", handleOutsideClick);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
@@ -45,7 +55,7 @@ const Header = () => {
           <p className="logo-title">KS Movie</p>
         </Link>
       </div>
-      <div className="nav-box">
+      <div className="nav-box" ref={navRef}>
         <div className="search">
           <SearchBar />
         </div>
@@ -53,8 +63,9 @@ const Header = () => {
       </div>
       <div
         className="mobile"
-        onClick={() => {
-          setshowNav(!showNav);
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowNav(!showNav);
         }}
       >
         {showNav ? <CgClose /> : <RxHamburgerMenu />}
