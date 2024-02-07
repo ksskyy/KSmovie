@@ -6,8 +6,8 @@ const LogoLoading = () => {
     <div className="logo-loading">
       <motion.svg
         id="logo-85"
-        width="80"
-        height="80"
+        width="200"
+        height="200"
         viewBox="0 0 40 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

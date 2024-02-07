@@ -10,7 +10,7 @@ const Home = () => {
     document.title = `${PAGE_NAME}-Home`;
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 400);
   }, []);
   return (
     <div>

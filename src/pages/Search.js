@@ -4,9 +4,11 @@ import Card from "../components/Card";
 import { PAGE_NAME } from "../global/globals";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import LogoLoading from "../components/LogoLoading";
 
 const Search = () => {
   const [searchResult, setSearchResult] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { query } = useParams();
 
   useEffect(() => {
@@ -17,6 +19,7 @@ const Search = () => {
 
   useEffect(() => {
     if (query) {
+      setIsLoading(true);
       fetchMovies(Requests.fetchSearchResult(query))
         .then((data) => {
           // console.log(data.results);
@@ -29,6 +32,9 @@ const Search = () => {
         })
         .catch((err) => {
           return err;
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     }
   }, [query, favourites]);
@@ -36,7 +42,9 @@ const Search = () => {
   return (
     <div className="search-result">
       <h1>Search Result</h1>
-      {query ? (
+      {isLoading ? (
+        <LogoLoading />
+      ) : query ? (
         <div>
           {searchResult && searchResult.length > 0 ? (
             <div className="movie-list">

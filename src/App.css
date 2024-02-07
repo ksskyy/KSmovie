@@ -635,7 +635,7 @@ button {
 .logo-loading {
   display: flex;
   justify-content: center;
-  margin-top: 30rem;
+  margin-top: 20rem;
   height: 60vh;
 }
 /* Footer */
