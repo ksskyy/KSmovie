@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Card from "./Card";
 import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import isFav from "../utilities/isFav";
-import Requests, { fetchMovies } from "../Requests";
+import LogoLoading from "../components/LogoLoading";
 
 function Movie({ title, movieList }) {
   const dispatch = useDispatch();
@@ -14,7 +11,7 @@ function Movie({ title, movieList }) {
       <h2>{title}</h2>
       <div className="movie-list">
         {movieList.length === 0 ? (
-          <div className="spinner"></div>
+          <LogoLoading />
         ) : (
           movieList.map((movie) => {
             // console.log("Movie ID:", movie.id);

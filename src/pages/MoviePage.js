@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import FavButton from "../components/FavButton";
+import LogoLoading from "../components/LogoLoading";
 
 const customStyles = {
   overlay: {
@@ -212,7 +213,7 @@ const MoviePage = () => {
           </div>
         </div>
       ) : (
-        <div className="spinner"></div>
+        <LogoLoading />
       )}
       <Modal
         isOpen={isModalOpen}

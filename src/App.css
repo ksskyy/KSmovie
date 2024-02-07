@@ -631,6 +631,13 @@ button {
     width: 12rem;
   }
 }
+/* Loading */
+.logo-loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 30rem;
+  height: 60vh;
+}
 /* Footer */
 footer {
   display: flex;

@@ -35,7 +35,7 @@ const SearchBar = () => {
         onMouseLeave={() => {
           setTimeout(() => {
             setIsSearchVisible(false);
-          }, 1000);
+          }, 3000);
         }}
       >
         <label htmlFor="search-input" className="sr-only">
