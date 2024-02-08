@@ -34,7 +34,6 @@ const customStyles = {
 };
 
 const MoviePage = () => {
-  // const favs = useSelector((state) => state.favs.items);
   useEffect(() => {
     document.title = `${PAGE_NAME} - Movie Details`;
     window.scrollTo(0, 0);

@@ -578,6 +578,7 @@ button {
   display: inline-block;
   margin-right: 1rem;
   width: 10rem;
+  margin-bottom: 0.5rem;
   h4 {
     font-size: 0.75rem;
   }
