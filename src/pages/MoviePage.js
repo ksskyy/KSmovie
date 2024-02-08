@@ -34,22 +34,21 @@ const customStyles = {
 };
 
 const MoviePage = () => {
-  useEffect(() => {
-    document.title = `${PAGE_NAME} - Movie Details`;
-    window.scrollTo(0, 0);
-  }, []);
-
   const { id } = useParams();
   const [movieData, setMovieData] = useState();
   const [movieVideoData, setMovieVideoData] = useState();
   const [movieCasts, setMovieCasts] = useState();
-  const [movieRecommendations, setMovieRecommendations] = useState();
+  const [movieRecommendations, setMovieRecommendations] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFav, setIsFav] = useState(false);
   const ref = useRef(null);
 
   const dispatch = useDispatch();
   const favoriteMovies = useSelector((state) => state.favs.movies);
+  useEffect(() => {
+    document.title = `${PAGE_NAME} - Movie Details`;
+    window.scrollTo(0, 0);
+  }, [movieRecommendations]);
 
   useEffect(() => {
     getMovieById(id)
@@ -214,7 +213,6 @@ const MoviePage = () => {
                           <img
                             src={`https://image.tmdb.org/t/p/w154/${cast.profile_path}`}
                             alt={cast.name}
-                            className=""
                           />
                         )}
                         <p>{cast.name}</p>
@@ -237,12 +235,15 @@ const MoviePage = () => {
                   style={{ overflowX: "auto", whiteSpace: "nowrap" }}
                 >
                   {movieRecommendations.map((result) => {
+                    const isFavRecommendation = favoriteMovies.some(
+                      (favMovie) => favMovie.id === result.id
+                    );
                     return (
                       <div className="recommendations" key={result.id}>
                         <Card
                           key={result.id}
                           movie={result}
-                          isFav={result.isFav}
+                          isFav={isFavRecommendation}
                         />
                       </div>
                     );
@@ -250,7 +251,7 @@ const MoviePage = () => {
                 </div>
               </div>
             ) : (
-              <p>No recommendations</p>
+              <p>Opps.No recommendations for now</p>
             )}
           </div>
         </div>
