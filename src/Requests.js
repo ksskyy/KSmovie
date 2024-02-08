@@ -13,6 +13,9 @@ const Requests = {
   fetchCasts: (movieId) => {
     return `${TMDB_BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`;
   },
+  fetchRecommendations: (movieId) => {
+    return `${TMDB_BASE_URL}/movie/${movieId}/recommendations?api_key=${API_KEY}&language=en-US`;
+  },
   fetchSearchResult: (query) => {
     return `${TMDB_BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(
       query

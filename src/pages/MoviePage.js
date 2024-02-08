@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { PAGE_NAME } from "../global/globals";
 import { useParams } from "react-router-dom";
-import { getMovieById } from "../components/Card";
+import Card, { getMovieById } from "../components/Card";
 import YouTube from "react-youtube";
 import Modal from "react-modal";
 import Requests, { fetchMovies } from "../Requests";
@@ -44,6 +44,7 @@ const MoviePage = () => {
   const [movieData, setMovieData] = useState();
   const [movieVideoData, setMovieVideoData] = useState();
   const [movieCasts, setMovieCasts] = useState();
+  const [movieRecommendations, setMovieRecommendations] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFav, setIsFav] = useState(false);
   const ref = useRef(null);
@@ -85,6 +86,21 @@ const MoviePage = () => {
               setMovieCasts(filteredCasts);
             }
           });
+        }
+        if (data.id) {
+          fetchMovies(Requests.fetchRecommendations(data.id))
+            .then((recommendations) => {
+              if (
+                recommendations.results &&
+                recommendations.results.length > 0
+              ) {
+                const recommendationsData = recommendations.results;
+                setMovieRecommendations(recommendationsData);
+              }
+            })
+            .catch((err) => {
+              return err;
+            });
         }
       })
       .catch((err) => {
@@ -210,6 +226,32 @@ const MoviePage = () => {
               </div>
             ) : (
               <p>No cast data available.</p>
+            )}
+          </div>
+          <div className="movie-recommendations">
+            <h2>Recommendations</h2>
+            {movieRecommendations && movieRecommendations.length > 0 ? (
+              <div className="movie-list">
+                <div
+                  className="recommendations-list"
+                  ref={ref}
+                  style={{ overflowX: "auto", whiteSpace: "nowrap" }}
+                >
+                  {movieRecommendations.map((result) => {
+                    return (
+                      <div className="recommendations" key={result.id}>
+                        <Card
+                          key={result.id}
+                          movie={result}
+                          isFav={result.isFav}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              <p>No recommendations</p>
             )}
           </div>
         </div>

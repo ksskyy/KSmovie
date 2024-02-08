@@ -544,7 +544,47 @@ button {
     pointer-events: none;
   }
 }
+.movie-recommendations h2 {
+  margin: 2.5rem;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  border-bottom: 1px dashed #ff9a04;
+}
+.movie-recommendations .movie-list {
+  display: grid;
+  grid-template-columns: auto;
+  ::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: #fff3;
+    -webkit-border-radius: 1ex;
+  }
 
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    -webkit-border-radius: 1ex;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #fff3;
+  }
+}
+.recommendations-list {
+  padding-top: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.recommendations {
+  display: inline-block;
+  margin-right: 1rem;
+  width: 10rem;
+  h4 {
+    font-size: 0.75rem;
+  }
+  p {
+    white-space: wrap;
+  }
+}
 @media screen and (max-width: 680px) {
   .movie-info {
     display: block;
