@@ -551,7 +551,7 @@ button {
     text-transform: uppercase;
     border-bottom: 1px dashed #ff9a04;
   }
-  p {
+  .message {
     margin: 2.5rem;
   }
 }

@@ -251,7 +251,7 @@ const MoviePage = () => {
                 </div>
               </div>
             ) : (
-              <p>Opps.No recommendations for now</p>
+              <p className="message">Opps.No recommendations for now</p>
             )}
           </div>
         </div>
