@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import Favourite from "../pages/Favourite";
 import MoviePage from "../pages/MoviePage";
 import Search from "../pages/Search";
-// import Banner from "../components/Banner";
 
 function AppRouter() {
   return (

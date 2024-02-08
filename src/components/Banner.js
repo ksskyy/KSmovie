@@ -7,7 +7,6 @@ import FavButton from "../components/FavButton";
 import { motion } from "framer-motion";
 import { truncate } from "../utilities/toolbelt";
 import { Link } from "react-router-dom";
-import { FaRegPlayCircle } from "react-icons/fa";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
@@ -22,7 +21,7 @@ function Banner() {
       .then((data) => {
         // console.log(data.results);
         let randomIndexToUse;
-        if (randomIndex == undefined) {
+        if (randomIndex === undefined) {
           const newRandomIndex = Math.floor(
             Math.random() * data.results.length
           );

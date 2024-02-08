@@ -15,8 +15,8 @@ const About = () => {
         vibrant community. Start your cinematic journey today!
       </p>
       <p>
-        MVDB is a React JS project proudly created by Kaia. I am a web developer
-        who love coding, designing best user experience, and challenging!
+        MVDB is a React JS project created by Kaia. I am a web developer who
+        love coding, designing best user experience, and challenging!
       </p>
       <div className="tmdb">
         <img
