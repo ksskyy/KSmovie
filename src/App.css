@@ -186,6 +186,16 @@ a {
 .about {
   margin: 2.5rem;
   margin-top: 7rem;
+  h3 {
+    color: var(--secondary-color);
+  }
+  .tmdb {
+    display: flex;
+    gap: 1rem;
+    img {
+      width: 40px;
+    }
+  }
 }
 /* Movie */
 
