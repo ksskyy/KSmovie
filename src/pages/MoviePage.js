@@ -229,11 +229,7 @@ const MoviePage = () => {
             <h2>Recommendations</h2>
             {movieRecommendations && movieRecommendations.length > 0 ? (
               <div className="movie-list">
-                <div
-                  className="recommendations-list"
-                  ref={ref}
-                  style={{ overflowX: "auto", whiteSpace: "nowrap" }}
-                >
+                <div className="recommendations-list" ref={ref}>
                   {movieRecommendations.map((result) => {
                     const isFavRecommendation = favoriteMovies.some(
                       (favMovie) => favMovie.id === result.id

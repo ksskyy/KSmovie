@@ -182,7 +182,12 @@ a {
     }
   }
 }
-/* movie */
+/* About*/
+.about {
+  margin: 2.5rem;
+  margin-top: 7rem;
+}
+/* Movie */
 
 button {
   all: unset;
