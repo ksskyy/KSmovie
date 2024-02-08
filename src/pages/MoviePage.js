@@ -48,7 +48,7 @@ const MoviePage = () => {
   useEffect(() => {
     document.title = `${PAGE_NAME} - Movie Details`;
     window.scrollTo(0, 0);
-  }, [movieRecommendations]);
+  }, [id]);
 
   useEffect(() => {
     getMovieById(id)

@@ -12,6 +12,7 @@ import { FaRegPlayCircle } from "react-icons/fa";
 function Banner() {
   const [movie, setMovie] = useState([]);
   const [isFav, setIsFav] = useState(false);
+  const [randomIndex, setRandomIndex] = useState();
 
   const dispatch = useDispatch();
   const favoriteMovies = useSelector((state) => state.favs.movies);
@@ -20,11 +21,21 @@ function Banner() {
     fetchMovies(Requests.fetchTrending)
       .then((data) => {
         // console.log(data.results);
-        const randomIndex = Math.floor(Math.random() * data.results.length);
-        setMovie(data.results[randomIndex]);
+        let randomIndexToUse;
+        if (randomIndex == undefined) {
+          const newRandomIndex = Math.floor(
+            Math.random() * data.results.length
+          );
+          setRandomIndex(newRandomIndex);
+          randomIndexToUse = newRandomIndex;
+        } else {
+          randomIndexToUse = randomIndex;
+        }
+        setMovie(data.results[randomIndexToUse]);
+        // console.log(favoriteMovies);
         setIsFav(
           favoriteMovies.some(
-            (favMovie) => favMovie.id === data.results[randomIndex].id
+            (favMovie) => favMovie.id === data.results[randomIndexToUse].id
           )
         );
       })
