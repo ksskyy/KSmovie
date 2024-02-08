@@ -544,11 +544,16 @@ button {
     pointer-events: none;
   }
 }
-.movie-recommendations h2 {
-  margin: 2.5rem;
-  color: var(--secondary-color);
-  text-transform: uppercase;
-  border-bottom: 1px dashed #ff9a04;
+.movie-recommendations {
+  h2 {
+    margin: 2.5rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    border-bottom: 1px dashed #ff9a04;
+  }
+  p {
+    margin: 2.5rem;
+  }
 }
 .movie-recommendations .movie-list {
   display: grid;
