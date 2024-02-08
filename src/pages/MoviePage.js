@@ -37,6 +37,7 @@ const MoviePage = () => {
   // const favs = useSelector((state) => state.favs.items);
   useEffect(() => {
     document.title = `${PAGE_NAME} - Movie Details`;
+    window.scrollTo(0, 0);
   }, []);
 
   const { id } = useParams();
@@ -221,12 +222,8 @@ const MoviePage = () => {
         style={customStyles}
         contentLabel="Video Modal"
       >
-        {/* <button onClick={closeModal}>Close</button> */}
         <FaWindowClose onClick={closeModal} />
         {movieVideoData && (
-          // <div style={customStyles.videoContainer}>
-          // <YouTube videoId={movieVideoData.key} opts={opts} />
-          // </div>
           <div className="video-container">
             <YouTube
               videoId={movieVideoData.key}
