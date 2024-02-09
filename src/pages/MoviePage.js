@@ -169,14 +169,16 @@ const MoviePage = () => {
                   <h3>Genres</h3>
                   <span className="genre">
                     {movieData.genres.map((genre) => (
-                      <p key={genre.id}>{genre.name}</p>
+                      <p key={`${genre.id}-${genre.name}`}>{genre.name}</p>
                     ))}
                   </span>
                   <div>
                     <h3>Language</h3>
                     <span className="language">
                       {movieData.spoken_languages.map((languages) => (
-                        <p key={languages.id}>{languages.name}</p>
+                        <p key={`${languages.id}-${languages.name}`}>
+                          {languages.name}
+                        </p>
                       ))}
                     </span>
                   </div>

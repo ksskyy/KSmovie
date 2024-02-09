@@ -8,7 +8,7 @@ import FavButton from "../components/FavButton";
 import { truncate } from "../utilities/toolbelt";
 import CircularProgressBar from "../components/CircularProgressBar";
 
-function getMovieById(movieId) {
+const getMovieById = (movieId) => {
   return fetch(`${TMDB_BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
     .then((res) => {
       if (!res.ok) {
@@ -19,8 +19,8 @@ function getMovieById(movieId) {
     .catch((err) => {
       throw err;
     });
-}
-function Card({ movie, isFav }) {
+};
+const Card = ({ movie, isFav }) => {
   const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState(false);
 
@@ -102,6 +102,6 @@ function Card({ movie, isFav }) {
       </motion.div>
     </div>
   );
-}
+};
 export { getMovieById };
 export default Card;

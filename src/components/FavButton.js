@@ -1,6 +1,6 @@
 import { PiHeartDuotone, PiHeartFill } from "react-icons/pi";
 
-function FavButton({ movieObj, fav, handleFavClick }) {
+const FavButton = ({ movieObj, fav, handleFavClick }) => {
   function handleToggleFav(event) {
     event.stopPropagation();
     if (fav) {
@@ -15,7 +15,7 @@ function FavButton({ movieObj, fav, handleFavClick }) {
       {fav ? <PiHeartFill /> : <PiHeartDuotone />}
     </div>
   );
-}
+};
 
 FavButton.defaultProps = {
   fav: false,

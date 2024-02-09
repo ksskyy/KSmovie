@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { truncate } from "../utilities/toolbelt";
 import { Link } from "react-router-dom";
 
-function Banner() {
+const Banner = () => {
   const [movie, setMovie] = useState([]);
   const [isFav, setIsFav] = useState(false);
   const [randomIndex, setRandomIndex] = useState();
@@ -90,6 +90,6 @@ function Banner() {
       <div className="banner-bottom"></div>
     </div>
   );
-}
+};
 
 export default Banner;

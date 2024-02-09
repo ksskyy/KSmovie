@@ -3,7 +3,7 @@ import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import LogoLoading from "../components/LogoLoading";
 
-function Movie({ title, movieList }) {
+const Movie = ({ title, movieList }) => {
   const dispatch = useDispatch();
   const favoriteMovies = useSelector((state) => state.favs.movies);
   return (
@@ -35,6 +35,6 @@ function Movie({ title, movieList }) {
       </div>
     </section>
   );
-}
+};
 
 export default Movie;
