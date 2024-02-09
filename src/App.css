@@ -386,15 +386,19 @@ button {
     color: var(--secondary-color);
     font-size: 2rem;
   }
-  img {
-    width: 20rem;
-  }
+
   p {
     font-size: 1.5rem;
   }
   .about-intro {
     display: flex;
+    align-items: center;
     gap: 2rem;
+    img {
+      width: 20rem;
+      height: 20rem;
+      order: 2;
+    }
   }
   .tmdb {
     display: flex;
@@ -404,7 +408,17 @@ button {
     }
   }
 }
-
+@media screen and (max-width: 769px) {
+  .about {
+    .about-intro {
+      display: block;
+      text-align: center;
+      p {
+        text-align: left;
+      }
+    }
+  }
+}
 /* Movie */
 .movies-container {
   position: relative;

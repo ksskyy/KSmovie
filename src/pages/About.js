@@ -9,6 +9,10 @@ const About = () => {
     <div className="about">
       <h1>ABOUT</h1>
       <div className="about-intro">
+        <img
+          src="images/vecteezy_movie-film-banner-design-template-filmstrip-and-film_14376053.jpg"
+          alt="cinematography poster"
+        />
         <div>
           <h3>Welcome to KS Movie Database!</h3>
           <p>
@@ -17,14 +21,11 @@ const About = () => {
             a vibrant community. Start your cinematic journey today!
           </p>
           <p>
-            MVDB is a React JS project created by Kaia. I am a web developer who
-            love coding, designing best user experience, and challenging!
+            Kaia's React JS project, KS Movie, is a testament to my passion for
+            web development, where I thrive on crafting exceptional user
+            experiences and tackling complex challenges head-on!
           </p>
         </div>
-        <img
-          src="images/vecteezy_movie-film-banner-design-template-filmstrip-and-film_14376053.jpg"
-          alt="cinematography poster"
-        />
       </div>
       <div className="tmdb">
         <img
