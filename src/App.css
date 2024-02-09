@@ -130,7 +130,8 @@ button {
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
-.navbar li a:hover {
+.navbar li a:hover,
+.navbar li a:active {
   transform: scale(1.2);
 }
 
@@ -142,10 +143,11 @@ button {
 .navbar li a:active:after {
   width: 50%;
 }
+
 .mobile {
   display: none;
   i {
-    color: #fff;
+    color: var(--third-color);
   }
 }
 .search {
@@ -457,13 +459,6 @@ button {
     height: 100%;
     object-fit: cover;
     border-radius: 0.5rem;
-  }
-  .no-poster {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
   }
 }
 .card-details::before {

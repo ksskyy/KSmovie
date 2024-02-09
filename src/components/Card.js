@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { API_KEY, TMDB_BASE_URL } from "../Requests";
 import { motion } from "framer-motion";
@@ -60,7 +60,11 @@ function Card({ movie, isFav }) {
             alt={movie?.title}
           />
         ) : (
-          <div className="no-poster">No Poster Available</div>
+          <img
+            src="/images/image-placeholder-500x500.svg"
+            alt={movie?.title}
+            className="no-poster"
+          />
         )}
         <div>
           <div className="movie-overview">
