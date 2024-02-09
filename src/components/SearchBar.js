@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -8,10 +8,28 @@ const SearchBar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
+  const searchContainerRef = useRef(null);
 
-  // const handleIconClick = () => {
-  //   setIsSearchVisible(!isSearchVisible);
-  // };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target)
+      ) {
+        setIsSearchVisible(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const toggleSearch = () => {
+    setIsSearchVisible(!isSearchVisible);
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -27,20 +45,9 @@ const SearchBar = () => {
   return (
     <div className="search-bar">
       <div
+        ref={searchContainerRef}
         className={`search-container ${isSearchVisible ? "visible" : ""}`}
-        onMouseEnter={() => setIsSearchVisible(true)}
-        // onMouseLeave={() => {
-        //   setIsSearchVisible(false);
-        // }}
-        onMouseLeave={() => {
-          setTimeout(() => {
-            setIsSearchVisible(false);
-          }, 3000);
-        }}
       >
-        <label htmlFor="search-input" className="sr-only">
-          Search Movie...
-        </label>
         <div className="input-container">
           {isSearchVisible && (
             <motion.input
@@ -57,7 +64,7 @@ const SearchBar = () => {
               transition={{ duration: 0.7 }}
             />
           )}
-          <motion.div whileTap={{ scale: 0.9 }}>
+          <motion.div whileTap={{ scale: 0.9 }} onClick={toggleSearch}>
             {searchInput.trim().length > 0 ? (
               <Link to={`/search/${searchInput.trim()}`}>
                 <FaSearch className="search-icon" />
