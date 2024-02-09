@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MdEmail } from "react-icons/md";
+import { FaSquareFacebook } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
     <footer>
-      <div>
+      <div className="footer">
         <Link className="logo" to="/">
           <svg
             id="logo-85"
@@ -26,14 +27,20 @@ const Footer = () => {
           </svg>
           <p className="logo-title">KS Movie</p>
         </Link>
-        <div>
-          <p>&copy; Kaia 2023 FWD BCIT</p>
-          <Link to={`https://www.linkedin.com/`}>
-            <FaLinkedin />
-          </Link>
-          <MdEmail />
+        <div className="social-media">
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <Link to={`https://www.linkedin.com/`}>
+              <FaLinkedin />
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <Link to={`https://www.facebook.com/`}>
+              <FaSquareFacebook />
+            </Link>
+          </motion.div>
         </div>
       </div>
+      <p>&copy; Kaia 2023 FWD BCIT</p>
     </footer>
   );
 };

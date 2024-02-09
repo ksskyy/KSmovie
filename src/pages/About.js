@@ -10,7 +10,7 @@ const About = () => {
       <h1>ABOUT</h1>
       <div className="about-intro">
         <img
-          src="images/vecteezy_movie-film-banner-design-template-filmstrip-and-film_14376053.jpg"
+          src="/images/vecteezy_movie-film-banner-design-template-filmstrip-and-film_14376053.png"
           alt="cinematography poster"
         />
         <div>
