@@ -395,8 +395,8 @@ button {
     align-items: center;
     gap: 2rem;
     img {
-      width: 20rem;
-      height: 20rem;
+      max-width: 20rem;
+      max-height: 20rem;
       order: 2;
     }
   }
@@ -415,6 +415,15 @@ button {
       text-align: center;
       p {
         text-align: left;
+      }
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .about {
+    .about-intro {
+      img {
+        width: 14rem;
       }
     }
   }

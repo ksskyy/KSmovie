@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MdEmail } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -24,6 +26,13 @@ const Footer = () => {
           </svg>
           <p className="logo-title">KS Movie</p>
         </Link>
+        <div>
+          <p>&copy; Kaia 2023 FWD BCIT</p>
+          <Link to={`https://www.linkedin.com/`}>
+            <FaLinkedin />
+          </Link>
+          <MdEmail />
+        </div>
       </div>
     </footer>
   );
