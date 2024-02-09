@@ -25,7 +25,10 @@ const Favourite = () => {
     <div className="favourite">
       <h1>Favourite</h1>
       {favourites.length < 1 ? (
-        <h2>Opps,No Favourite</h2>
+        <h2>
+          Opps...Sorry you have no favourited movies. Return to the home page to
+          add a favourite movie
+        </h2>
       ) : (
         <div className="movie-list">
           {favourites.map((movie) => {
