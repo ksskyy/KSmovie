@@ -1,19 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Limelight&family=Roboto+Condensed:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Limelight&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@700&display=swap");
 @import "~video-react/dist/video-react.css";
 
 html {
   margin: 0;
   padding: 0;
 }
+:root {
+  --primary-color: #282c34;
+  --secondary-color: #ff9a04;
+  --third-color: #fff;
+}
 body {
   font-family: "Roboto Condensed", sans-serif;
   background-color: var(--primary-color);
   color: var(--third-color);
 }
-:root {
-  --primary-color: #282c34;
-  --secondary-color: #ff9a04;
-  --third-color: #fff;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
 }
 ul,
 li {
@@ -361,6 +369,10 @@ button {
 .about {
   margin: 2.5rem;
   margin-top: 7rem;
+  h1 {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+  }
   h3 {
     color: var(--secondary-color);
   }
@@ -374,7 +386,6 @@ button {
 }
 
 /* Movie */
-
 .movies-container {
   position: relative;
 
@@ -419,8 +430,6 @@ button {
 }
 
 .card {
-  /* display: grid; */
-  /* grid-template-rows: auto auto auto; */
   position: relative;
   .movies-title {
     margin-top: 1rem;
@@ -431,8 +440,6 @@ button {
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
-  /* height: 300px; */
-  /* height: 60%; */
   img {
     position: absolute;
     top: 0;
@@ -502,14 +509,10 @@ button {
   width: 2.5rem;
   bottom: 0.5rem;
   right: 0;
-  /* transform: translateY(50%); */
   margin: 0.25rem;
-  /* cursor: none; */
   z-index: 30;
 }
-/* .vote-result .CircularProgressbar .CircularProgressbar-text {
-  font-size: 2rem;
-} */
+
 @media screen and (max-width: 992px) {
   .movie-list {
     grid-template-columns: repeat(5, 1fr);
@@ -739,9 +742,9 @@ button {
     text-transform: uppercase;
     border-bottom: 1px dashed #ff9a04;
   }
-  .message {
-    margin: 2.5rem;
-  }
+}
+.message {
+  margin: 2.5rem;
 }
 .movie-recommendations .movie-list {
   display: grid;
@@ -861,7 +864,6 @@ button {
   font-size: 1.5rem;
   transition: opacity 0.3s ease;
   color: var(--secondary-color);
-  /* z-index: 20; */
 }
 
 .search-container.visible .search-icon {
@@ -872,6 +874,7 @@ button {
     width: 12rem;
   }
 }
+
 /* Loading */
 .logo-loading {
   display: flex;

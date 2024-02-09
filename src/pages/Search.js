@@ -55,11 +55,11 @@ const Search = () => {
               })}
             </div>
           ) : (
-            <h2>Opps,No Movie Matches </h2>
+            <h2 className="message">Opps,No Movie Matches </h2>
           )}
         </div>
       ) : (
-        <div>You haven't entered a movie...</div>
+        <div className="message">You haven't entered a movie...</div>
       )}
     </div>
   );
