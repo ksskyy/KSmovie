@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./Banner.css";
 import Requests, { fetchMovies } from "../Requests";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavMovie, deleteFavMovie } from "../features/favs/favsSlice";

@@ -181,6 +181,138 @@ a {
     }
   }
 }
+
+/* Banner*/
+.banner {
+  color: var(--third-color);
+  top: 0;
+  object-fit: contain;
+  background-size: cover;
+  background-position: center center;
+  height: 85vh;
+  width: 100%;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000080;
+}
+
+.banner-contents {
+  margin: 0 1rem;
+}
+.banner-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 55%;
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+.banner-title h1 {
+  font-size: clamp(2rem, 4vw, 6rem);
+  font-weight: 800;
+  padding-bottom: 1rem;
+  margin-right: 0.5rem;
+  z-index: 20;
+}
+.banner-heart {
+  font-size: 3rem;
+  margin-right: 1.5rem;
+}
+.more-info {
+  position: absolute;
+  top: 90%;
+  cursor: pointer;
+  color: var(--secondary-color);
+  outline: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 0.2vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 1rem;
+  padding-top: 0.5rem;
+  background-color: #33333380;
+  padding-bottom: 0.5rem;
+  z-index: 10;
+}
+.more-info:hover {
+  color: #000;
+  background-color: var(--secondary-color);
+  transition: all 0.2s;
+}
+.banner-description {
+  position: absolute;
+  top: 70%;
+  line-height: 1.3;
+  padding-top: 1rem;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+  width: fit-content;
+}
+.banner-button {
+  cursor: pointer;
+  color: #ff9b0499;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  border-radius: 50%;
+}
+.banner-button:hover {
+  color: var(--secondary-color);
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.banner-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 7.4rem;
+  background-image: linear-gradient(180deg, transparent, #25252582, #111);
+}
+@media screen and (max-width: 425px) {
+  .banner-title {
+    top: 60%;
+  }
+  .more-info {
+    top: 85%;
+  }
+  .more-info:active {
+    color: #000;
+    background-color: var(--secondary-color);
+  }
+  .banner-description {
+    /* top: 60%; */
+    display: none;
+  }
+  .banner-heart {
+    font-size: 2rem;
+  }
+  .banner-button {
+    color: var(--secondary-color);
+    position: absolute;
+    font-size: 2rem;
+    top: 88%;
+    left: 80%;
+    z-index: 20;
+  }
+}
+
 /* About*/
 .about {
   margin: 2.5rem;

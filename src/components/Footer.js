@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Nav from "../components/Nav";
 
 const Footer = () => {
-  const [showNav, setshowNav] = useState(false);
-  // state = { clicked: false };
-  // handleClick = () => {
-  //   this.setState({ clicked: !this.state.clicked });
-  // };
-  // render() {
   return (
     <footer>
       <div>
@@ -34,7 +27,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-  // }
 };
 
 export default Footer;
