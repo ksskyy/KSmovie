@@ -14,7 +14,7 @@ const About = () => {
           alt="cinematography poster"
         />
         <div>
-          <h3>Welcome to KS Movie Database!</h3>
+          <h3>Welcome to KS(Kiss) Movie Database!</h3>
           <p>
             Your gateway to cinematic exploration! Dive into a world of movies,
             from classics to blockbusters, with personalized recommendations and

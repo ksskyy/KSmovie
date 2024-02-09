@@ -6,10 +6,11 @@ import Footer from "../components/Footer";
 import Favourite from "../pages/Favourite";
 import MoviePage from "../pages/MoviePage";
 import Search from "../pages/Search";
+import { APP_FOLDER_NAME } from "../global/globals";
 
 function AppRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={`/${APP_FOLDER_NAME}`}>
       <Header />
 
       <main>

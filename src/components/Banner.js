@@ -8,7 +8,7 @@ import { truncate } from "../utilities/toolbelt";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState();
   const [isFav, setIsFav] = useState(false);
   const [randomIndex, setRandomIndex] = useState();
 
@@ -52,43 +52,53 @@ const Banner = () => {
       dispatch(deleteFavMovie(obj));
     }
   }
-
+  console.log(movie);
   return (
-    <div
-      className="banner"
-      style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`,
-      }}
-    >
+    <>
       {movie && (
-        <div className="banner-contents">
-          <div className="banner-title">
-            <h1>{movie?.title || movie?.name || movie?.original_name}</h1>
-            <motion.div
-              whileHover={{ scale: 1.2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              whileTap={{ scale: 0.8 }}
-              className="banner-heart"
-            >
-              <FavButton
-                movieObj={movie}
-                fav={isFav}
-                handleFavClick={handleFavClick}
-              />
-            </motion.div>
-          </div>
-          <Link key={movie.id} to={`/movie/${movie.id}`} className="more-info">
-            More Info
-          </Link>
+        <div
+          className="banner"
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`,
+          }}
+        >
+          {movie && (
+            <div className="banner-contents">
+              <div className="banner-title">
+                <h1>{movie?.title || movie?.name || movie?.original_name}</h1>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  whileTap={{ scale: 0.8 }}
+                  className="banner-heart"
+                >
+                  <FavButton
+                    movieObj={movie}
+                    fav={isFav}
+                    handleFavClick={handleFavClick}
+                  />
+                </motion.div>
+              </div>
+              <Link
+                key={movie.id}
+                to={`/movie/${movie.id}`}
+                className="more-info"
+              >
+                More Info
+              </Link>
 
-          {/* <button className="banner-button">
-            <i class="fa-solid fa-circle-play"></i>
-          </button> */}
-          <p className="banner-description">{truncate(movie?.overview, 150)}</p>
+              {/* <button className="banner-button">
+              <i class="fa-solid fa-circle-play"></i>
+            </button> */}
+              <p className="banner-description">
+                {truncate(movie?.overview, 150)}
+              </p>
+            </div>
+          )}
+          <div className="banner-bottom"></div>
         </div>
       )}
-      <div className="banner-bottom"></div>
-    </div>
+    </>
   );
 };
 

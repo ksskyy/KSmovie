@@ -1,5 +1,6 @@
 {
   "name": "the-movie-app",
+  "homepage": "ksmovie",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

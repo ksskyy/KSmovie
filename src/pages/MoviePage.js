@@ -124,14 +124,16 @@ const MoviePage = () => {
 
   return (
     <div className="movie-page">
-      <div
-        className="movie-single-banner"
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieData?.backdrop_path})`,
-        }}
-      >
-        {movieData && <h1 className="movie-title">{movieData.title}</h1>}
-      </div>
+      {movieData && (
+        <div
+          className="movie-single-banner"
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieData?.backdrop_path})`,
+          }}
+        >
+          {movieData && <h1 className="movie-title">{movieData.title}</h1>}
+        </div>
+      )}
       {movieData ? (
         <div className="movie-intro">
           <div className="movie-info">
