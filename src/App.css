@@ -384,6 +384,17 @@ button {
   }
   h3 {
     color: var(--secondary-color);
+    font-size: 2rem;
+  }
+  img {
+    width: 20rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  .about-intro {
+    display: flex;
+    gap: 2rem;
   }
   .tmdb {
     display: flex;
