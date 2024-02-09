@@ -1,6 +1,5 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import "./Panel.css";
 import Movie from "./Movie";
 import { useEffect, useState } from "react";
 import Requests, { fetchMovies } from "../Requests";

@@ -29,6 +29,7 @@ a {
 button {
   all: unset;
 }
+/*--Home--*/
 
 /* --Header-- */
 .header {
@@ -314,6 +315,45 @@ button {
     top: 88%;
     left: 80%;
     z-index: 20;
+  }
+}
+
+/*--Panel--*/
+.panel {
+  font-size: clamp(1rem, 2vw, 2.5rem);
+  font-weight: 500;
+}
+.react-tabs__tab-list {
+  display: flex;
+  gap: 2.5rem;
+  text-transform: uppercase;
+  .react-tabs__tab--selected {
+    background: var(--secondary-color);
+    color: #101010;
+    border-radius: 5px 5px 0 0;
+    font-weight: 600;
+  }
+}
+@media screen and (max-width: 689px) {
+  .react-tabs__tab-list {
+    /* display: none; */
+    gap: 0.5rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .react-tabs__tab-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .react-tabs__tab {
+      padding: 0.5rem 2rem;
+    }
+    .react-tabs__tab--selected {
+      border-radius: 5px;
+    }
   }
 }
 
