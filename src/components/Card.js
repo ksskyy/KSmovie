@@ -61,7 +61,7 @@ const Card = ({ movie, isFav }) => {
           />
         ) : (
           <img
-            src="/images/image-placeholder-500x500.svg"
+            src="../images/image-placeholder-500x500.svg"
             alt={movie?.title}
             className="no-poster"
           />

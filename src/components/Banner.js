@@ -52,7 +52,7 @@ const Banner = () => {
       dispatch(deleteFavMovie(obj));
     }
   }
-  console.log(movie);
+  // console.log(movie);
   return (
     <>
       {movie && (
