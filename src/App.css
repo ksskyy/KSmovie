@@ -363,7 +363,7 @@ button {
     flex-wrap: wrap;
     gap: 1rem;
   }
-  .react-tabs__tab-list.react-tabs__tab {
+  .react-tabs__tab-list .react-tabs__tab {
     padding: 0.5rem 2rem;
   }
   .react-tabs__tab-list .react-tabs__tab--selected {
