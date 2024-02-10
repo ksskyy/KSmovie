@@ -70,7 +70,7 @@ const Card = ({ movie, isFav }) => {
           <div className="movie-overview">
             <h4>OVERVIEW</h4>
             <p className="date">{movie?.release_date}</p>
-            <p>{truncate(movie?.overview, 80)}</p>
+            <p className="overview-text">{truncate(movie?.overview, 80)}</p>
             <Link
               key={movie.id}
               to={`/movie/${movie.id}`}

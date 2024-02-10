@@ -499,10 +499,11 @@ button {
   border-radius: 0.5rem;
   overflow: hidden;
 }
-.movie-overview p {
+.movie-overview .overview-text {
   margin: 0 0.5rem;
   color: var(--third-color);
   font-size: clamp(0.5rem, 1vw, 1rem);
+  white-space: pre-wrap;
 }
 .date {
   font-weight: 700;
@@ -808,9 +809,7 @@ button {
 .recommendations h4 {
   font-size: 0.75rem;
 }
-.recommendations-list .recommendations p {
-  white-space: wrap;
-}
+
 @media screen and (max-width: 680px) {
   .movie-info {
     display: block;
