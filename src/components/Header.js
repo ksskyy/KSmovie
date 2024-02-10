@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Nav from "../components/Nav";
 import SearchBar from "./SearchBar";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -9,6 +9,7 @@ const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const navRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,19 @@ const Header = () => {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
+
+  useEffect(() => {
+    const closeNavOnPageChange = () => {
+      setShowNav(false);
+    };
+    const unlisten = navigate(closeNavOnPageChange);
+
+    return unlisten;
+  }, [navigate]);
+
+  const handleLinkClick = () => {
+    setShowNav(false);
+  };
 
   return (
     <header
@@ -59,7 +73,7 @@ const Header = () => {
         <div className="search">
           <SearchBar />
         </div>
-        <Nav />
+        <Nav onClick={handleLinkClick} />
       </div>
       <div
         className="mobile"
