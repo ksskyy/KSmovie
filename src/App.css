@@ -690,6 +690,7 @@ button {
   justify-content: flex-start;
   align-items: center;
   gap: 2rem;
+  text-transform: capitalize;
 }
 .play-area {
   display: flex;
@@ -949,4 +950,7 @@ footer {
 }
 .footer p {
   padding: 1rem;
+}
+.footer .logo-title {
+  margin: 0;
 }
