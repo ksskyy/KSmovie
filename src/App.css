@@ -952,8 +952,8 @@ footer {
   margin-left: 1rem;
   font-size: 2rem;
 }
-.footer p {
-  padding: 1rem;
+footer p {
+  padding-bottom: 1rem;
 }
 .footer .logo-title {
   margin: 0;
