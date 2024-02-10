@@ -17,8 +17,8 @@ const About = () => {
           <h3>Welcome to KS(Kiss) Movie Database!</h3>
           <p>
             Your gateway to cinematic exploration! Dive into a world of movies,
-            from classics to blockbusters, with personalized recommendations and
-            a vibrant community. Start your cinematic journey today!
+            from classics to blockbusters, with personalized recommendations.
+            Start your cinematic journey today!
           </p>
           <p>
             Kaia's React JS project, KS Movie, is a testament to my passion for
