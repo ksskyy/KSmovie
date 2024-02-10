@@ -416,7 +416,11 @@ button {
 }
 @media screen and (max-width: 425px) {
   .about .about-intro img {
-    width: 14rem;
+    display: none;
+  }
+  .about-intro p,
+  .tmdb p {
+    font-size: 1rem;
   }
 }
 /* Movie */
