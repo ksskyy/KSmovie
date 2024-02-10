@@ -5,6 +5,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <footer>
       <div className="footer">
@@ -27,6 +33,7 @@ const Footer = () => {
           </svg>
           <p className="logo-title">KS Movie</p>
         </Link>
+
         <div className="social-media">
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Link to={`https://www.linkedin.com/`}>
@@ -40,7 +47,10 @@ const Footer = () => {
           </motion.div>
         </div>
       </div>
-      <p>&copy; Kaia 2023 FWD BCIT</p>
+      <button onClick={scrollToTop} className="top">
+        Back to Top
+      </button>
+      <p>&copy; Kaia Sun 2023 FWD BCIT</p>
     </footer>
   );
 };
