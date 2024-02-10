@@ -678,6 +678,10 @@ button {
 }
 
 .movie-vote {
+  display: flex;
+  gap: 1rem;
+}
+.movie-vote svg {
   width: 3rem;
 }
 .movie-play {
@@ -685,7 +689,12 @@ button {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
+}
+.play-area {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 .play-button {
   font-size: 2.75rem;
@@ -805,7 +814,7 @@ button {
 .recommendations h4 {
   font-size: 0.75rem;
 }
-.recommendations p {
+.recommendations-list .recommendations p {
   white-space: wrap;
 }
 @media screen and (max-width: 680px) {

@@ -191,15 +191,16 @@ const MoviePage = () => {
                 </div>
               </div>
               <div className="movie-play">
-                <div>
+                <div className="play-area">
                   <FaRegPlayCircle
                     onClick={openModal}
                     className="play-button"
                   />
+                  <p>Play Trailer</p>
                 </div>
-                {/* <h3>User Score</h3> */}
                 <div className="movie-vote">
                   <CircularProgressBar voteAverage={movieData.vote_average} />
+                  <p>User Score</p>
                 </div>
               </div>
             </div>
