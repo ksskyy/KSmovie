@@ -731,23 +731,22 @@ button {
   list-style: none;
   height: 16rem;
   overflow-x: scroll;
-  flex: 0 0 600px;
   margin: 0 auto;
 }
 
-.cast-scroller::-webkit-scrollbar {
+.cast-scroller ul::-webkit-scrollbar {
   height: 5px;
   width: 5px;
   background: #fff3;
   -webkit-border-radius: 1ex;
 }
 
-.cast-scroller::-webkit-scrollbar-thumb {
+.cast-scroller ul::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
   -webkit-border-radius: 1ex;
 }
 
-.cast-scroller::-webkit-scrollbar-corner {
+.cast-scroller ul::-webkit-scrollbar-corner {
   background: #fff3;
 }
 
@@ -790,19 +789,23 @@ button {
   display: grid;
   grid-template-columns: auto;
 }
-.movie-recommendations .movie-list::-webkit-scrollbar {
+.movie-recommendations .movie-list .recommendations-list::-webkit-scrollbar {
   height: 5px;
   width: 5px;
   background: #fff3;
   -webkit-border-radius: 1ex;
 }
 
-.movie-recommendations .movie-list::-webkit-scrollbar-thumb {
+.movie-recommendations
+  .movie-list
+  .recommendations-list::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
   -webkit-border-radius: 1ex;
 }
 
-.movie-recommendations .movie-list::-webkit-scrollbar-corner {
+.movie-recommendations
+  .movie-list
+  .recommendations-list::-webkit-scrollbar-corner {
   background: #fff3;
 }
 .recommendations-list {
