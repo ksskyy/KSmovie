@@ -88,22 +88,22 @@ button {
   justify-items: center;
   padding: 1rem 0;
   text-transform: uppercase;
-  li {
-    list-style: none;
-    padding: 0 0 0 1.75rem;
-    position: relative;
-    /* width: 10rem; */
-    text-align: end;
-    a {
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--secondary-color);
-      text-decoration: none;
-      position: relative;
-      display: inline-block;
-      transition: 0.3s ease-in-out;
-    }
-  }
+}
+.navbar li {
+  list-style: none;
+  padding: 0 0 0 1.75rem;
+  position: relative;
+  /* width: 10rem; */
+  text-align: end;
+}
+.navbar li a {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: 0.3s ease-in-out;
 }
 
 .navbar li a:after {
@@ -146,9 +146,9 @@ button {
 
 .mobile {
   display: none;
-  i {
-    color: var(--third-color);
-  }
+}
+.mobile i {
+  color: var(--third-color);
 }
 .search {
   width: 10rem;
@@ -172,10 +172,10 @@ button {
     padding: 40px 0 0 10px;
     transition: 0.3s ease-in-out;
     margin: 0;
-    li {
-      top: 5rem;
-      margin-bottom: 2rem;
-    }
+  }
+  .navbar li {
+    top: 5rem;
+    margin-bottom: 2rem;
   }
   .show nav .navbar {
     right: 0px;
@@ -185,15 +185,15 @@ button {
     display: block;
     padding: 1.19rem 0;
     z-index: 30;
-    svg {
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--secondary-color);
-      transition: transform 0.3s ease-in-out;
-    }
-    svg:active {
-      transform: rotate(90deg);
-    }
+  }
+  .mobile svg {
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out;
+  }
+  .mobile svg:active {
+    transform: rotate(90deg);
   }
 }
 
@@ -230,15 +230,14 @@ button {
   top: 55%;
   color: var(--secondary-color);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-
-  h1 {
-    font-size: clamp(2rem, 4vw, 6rem);
-    font-weight: 800;
-    font-family: "Roboto Condensed", sans-serif;
-    padding-bottom: 1rem;
-    margin-right: 0.5rem;
-    z-index: 20;
-  }
+}
+.banner-title h1 {
+  font-size: clamp(2rem, 4vw, 6rem);
+  font-weight: 800;
+  font-family: "Roboto Condensed", sans-serif;
+  padding-bottom: 1rem;
+  margin-right: 0.5rem;
+  z-index: 20;
 }
 .banner-heart {
   font-size: 3rem;
@@ -303,12 +302,11 @@ button {
   background-image: linear-gradient(180deg, transparent, #25252582, #111);
 }
 @media screen and (max-width: 425px) {
-  .banner-contents {
-    .more-info {
-      left: 50%;
-      transform: translateX(-50%);
-    }
+  .banner-contents .more-info {
+    left: 50%;
+    transform: translateX(-50%);
   }
+
   .banner-title {
     top: 60%;
     font-family: "Roboto Condensed", sans-serif;
@@ -344,12 +342,12 @@ button {
   display: flex;
   gap: 2.5rem;
   text-transform: uppercase;
-  .react-tabs__tab--selected {
-    background: var(--secondary-color);
-    color: #101010;
-    border-radius: 5px 5px 0 0;
-    font-weight: 600;
-  }
+}
+.react-tabs__tab-list .react-tabs__tab--selected {
+  background: var(--secondary-color);
+  color: #101010;
+  border-radius: 5px 5px 0 0;
+  font-weight: 600;
 }
 @media screen and (max-width: 689px) {
   .react-tabs__tab-list {
@@ -364,13 +362,12 @@ button {
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-
-    .react-tabs__tab {
-      padding: 0.5rem 2rem;
-    }
-    .react-tabs__tab--selected {
-      border-radius: 5px;
-    }
+  }
+  .react-tabs__tab-list.react-tabs__tab {
+    padding: 0.5rem 2rem;
+  }
+  .react-tabs__tab-list .react-tabs__tab--selected {
+    border-radius: 5px;
   }
 }
 
@@ -378,122 +375,115 @@ button {
 .about {
   margin: 2.5rem;
   margin-top: 7rem;
-  h1 {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-  }
-  h3 {
-    color: var(--secondary-color);
-    font-size: 2rem;
-  }
+}
+.about h1 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+.about h3 {
+  color: var(--secondary-color);
+  font-size: 2rem;
+}
 
-  p {
-    font-size: 1.5rem;
-  }
-  .about-intro {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    img {
-      max-width: 20rem;
-      max-height: 20rem;
-      order: 2;
-    }
-  }
-  .tmdb {
-    display: flex;
-    gap: 1rem;
-    img {
-      width: 40px;
-    }
+.about p {
+  font-size: 1.5rem;
+}
+.about .about-intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.about .about-intro img {
+  max-width: 20rem;
+  max-height: 20rem;
+  order: 2;
+}
+.about .tmdb {
+  display: flex;
+  gap: 1rem;
+  img {
+    width: 40px;
   }
 }
 @media screen and (max-width: 769px) {
-  .about {
-    .about-intro {
-      display: block;
-      text-align: center;
-      p {
-        text-align: left;
-      }
-    }
+  .about .about-intro {
+    display: block;
+    text-align: center;
+  }
+  .about .about-intro p {
+    text-align: left;
   }
 }
 @media screen and (max-width: 425px) {
-  .about {
-    .about-intro {
-      img {
-        width: 14rem;
-      }
-    }
+  .about .about-intro img {
+    width: 14rem;
   }
 }
 /* Movie */
 .movies-container {
   position: relative;
-
-  h2 {
-    color: #ff9b0446;
-    font-size: 2.5rem;
-    writing-mode: vertical-rl;
-    position: sticky;
-    top: 20rem;
-    right: 0;
-    text-transform: uppercase;
-    white-space: nowrap;
-    width: 100%;
-    margin: 0;
-    height: 0;
-  }
+}
+.movies-container h2 {
+  color: #ff9b0446;
+  font-size: 2.5rem;
+  writing-mode: vertical-rl;
+  position: sticky;
+  top: 20rem;
+  right: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: 100%;
+  margin: 0;
+  height: 0;
 }
 .movie-list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   margin: 2.5rem;
   gap: 1.5rem;
-  a {
-    text-align: center;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    color: var(--secondary-color);
-    font-size: clamp(0.5rem, 1vw, 2rem);
-    cursor: pointer;
-    font-weight: 700;
-    top: 85%;
-  }
-  h4 {
-    text-align: left;
-    margin: 0.25rem;
-    font-weight: normal;
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
-    color: var(--secondary-color);
-    font-weight: 600;
-    font-family: "Roboto Condensed", sans-serif;
-  }
+}
+.movie-list a {
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  color: var(--secondary-color);
+  font-size: clamp(0.5rem, 1vw, 2rem);
+  cursor: pointer;
+  font-weight: 700;
+  top: 85%;
+}
+.movie-list h4 {
+  text-align: left;
+  margin: 0.25rem;
+  font-weight: normal;
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .card {
   position: relative;
-  .movies-title {
-    margin-top: 1rem;
-    color: var(--third-color);
-  }
+}
+.card .movies-title {
+  margin-top: 1rem;
+  color: var(--third-color);
 }
 .card-details {
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.5rem;
-  }
+}
+.card-details img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 .card-details::before {
   content: "";
@@ -518,14 +508,14 @@ button {
   transition: opacity 0.3s ease-in-out;
   border-radius: 0.5rem;
   overflow: hidden;
-  p {
-    margin: 0 0.5rem;
-    color: var(--third-color);
-    font-size: clamp(0.5rem, 1vw, 1rem);
-  }
-  .date {
-    font-weight: 700;
-  }
+}
+.movie-overview p {
+  margin: 0 0.5rem;
+  color: var(--third-color);
+  font-size: clamp(0.5rem, 1vw, 1rem);
+}
+.date {
+  font-weight: 700;
 }
 .card-details:hover .movie-overview {
   opacity: 1;
@@ -579,14 +569,14 @@ button {
 
 .favourite {
   margin-top: 7rem;
-  h1 {
-    margin-left: 2.5rem;
-    text-transform: uppercase;
-    font-size: 2.5rem;
-  }
-  h2 {
-    margin-left: 2.5rem;
-  }
+}
+.favourite h1 {
+  margin-left: 2.5rem;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+.favourite h2 {
+  margin-left: 2.5rem;
 }
 
 /* SingleMoviePage */
@@ -628,10 +618,10 @@ button {
   display: flex;
   justify-content: flex-start;
   gap: 2.5rem;
-  h2 {
-    color: var(--secondary-color);
-    text-transform: capitalize;
-  }
+}
+.movie-info h2 {
+  color: var(--secondary-color);
+  text-transform: capitalize;
 }
 
 .movie-poster {
@@ -642,42 +632,42 @@ button {
 }
 .genre-wrapper {
   margin-top: 0.5rem;
-  h2 {
-    margin: 0.5rem 0;
-    font-size: 2rem;
+}
+.genre-wrapper h2 {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+}
+.genre-wrapper h3 {
+  margin: 0.75rem 0 0 0;
+}
+.genre-wrapper p {
+  margin: 0.5rem;
+}
+.genre-wrapper span {
+  ::before {
+    content: "|";
+    color: var(--secondary-color);
   }
-  h3 {
-    margin: 0.75rem 0 0 0;
-  }
-  p {
-    margin: 0.5rem;
-  }
-  span {
-    ::before {
-      content: "|";
-      color: var(--secondary-color);
-    }
-  }
-  .movie-title-fav {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    .movie-single-heart {
-      font-size: 2rem;
-      margin-left: 1rem;
-      color: var(--secondary-color);
-    }
-  }
-  .date,
-  .runtime {
-    font-weight: 600;
-    font-size: 0.75rem;
-    /* margin-left: 1rem; */
-    border: 1px dotted var(--secondary-color);
-    border-radius: 5px;
-    padding: 0.1rem 0.25rem;
-    margin: 0.5rem;
-  }
+}
+.genre-wrapper .movie-title-fav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.movie-single-heart {
+  font-size: 2rem;
+  margin-left: 1rem;
+  color: var(--secondary-color);
+}
+.genre-wrapper .date,
+.genre-wrapper .runtime {
+  font-weight: 600;
+  font-size: 0.75rem;
+  /* margin-left: 1rem; */
+  border: 1px dotted var(--secondary-color);
+  border-radius: 5px;
+  padding: 0.1rem 0.25rem;
+  margin: 0.5rem;
 }
 .genre,
 .language {
@@ -696,10 +686,10 @@ button {
   justify-content: flex-start;
   align-items: center;
   gap: 4rem;
-  .play-button {
-    font-size: 2.75rem;
-    cursor: pointer;
-  }
+}
+.play-button {
+  font-size: 2.75rem;
+  cursor: pointer;
 }
 
 .video-container {
@@ -718,89 +708,88 @@ button {
 
 .movie-casts {
   margin: 1rem 10rem;
-  .cast-scroller {
-    position: relative;
-    ul {
-      display: flex;
-      list-style: none;
-      height: 16rem;
-      overflow-x: scroll;
-      flex: 0 0 600px;
-      margin: 0 auto;
-    }
-
-    ::-webkit-scrollbar {
-      height: 5px;
-      width: 5px;
-      background: #fff3;
-      -webkit-border-radius: 1ex;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--secondary-color);
-      -webkit-border-radius: 1ex;
-    }
-
-    ::-webkit-scrollbar-corner {
-      background: #fff3;
-    }
-
-    li {
-      margin: 0 2rem 0 0;
-      img {
-        border-radius: 5px;
-        max-width: 120px;
-        height: auto;
-      }
-      p {
-        text-align: center;
-      }
-    }
-
-    li:last-of-type {
-      margin: 0;
-    }
-  }
-  .cast-scroller::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0rem;
-    bottom: 0;
-    width: 20px;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), #ff9b0479);
-    pointer-events: none;
-  }
 }
-.movie-recommendations {
-  h2 {
-    margin: 2.5rem;
-    color: var(--secondary-color);
-    text-transform: uppercase;
-    border-bottom: 1px dashed #ff9a04;
-  }
+.cast-scroller {
+  position: relative;
 }
+.cast-scroller ul {
+  display: flex;
+  list-style: none;
+  height: 16rem;
+  overflow-x: scroll;
+  flex: 0 0 600px;
+  margin: 0 auto;
+}
+
+.cast-scroller::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: #fff3;
+  -webkit-border-radius: 1ex;
+}
+
+.cast-scroller::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  -webkit-border-radius: 1ex;
+}
+
+.cast-scroller::-webkit-scrollbar-corner {
+  background: #fff3;
+}
+
+.cast-scroller li {
+  margin: 0 2rem 0 0;
+}
+.cast-scroller li img {
+  border-radius: 5px;
+  max-width: 120px;
+  height: auto;
+}
+.cast-scroller li p {
+  text-align: center;
+}
+
+.cast-scroller li:last-of-type {
+  margin: 0;
+}
+.cast-scroller::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0rem;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #ff9b0479);
+  pointer-events: none;
+}
+.movie-recommendations h2 {
+  margin: 2.5rem;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  border-bottom: 1px dashed #ff9a04;
+}
+
 .message {
   margin: 2.5rem;
 }
 .movie-recommendations .movie-list {
   display: grid;
   grid-template-columns: auto;
-  ::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
-    background: #fff3;
-    -webkit-border-radius: 1ex;
-  }
+}
+.movie-recommendations .movie-list::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: #fff3;
+  -webkit-border-radius: 1ex;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
-    -webkit-border-radius: 1ex;
-  }
+.movie-recommendations .movie-list::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  -webkit-border-radius: 1ex;
+}
 
-  ::-webkit-scrollbar-corner {
-    background: #fff3;
-  }
+.movie-recommendations .movie-list::-webkit-scrollbar-corner {
+  background: #fff3;
 }
 .recommendations-list {
   padding-top: 1rem;
@@ -812,12 +801,12 @@ button {
   margin-right: 1rem;
   width: 10rem;
   margin-bottom: 0.5rem;
-  h4 {
-    font-size: 0.75rem;
-  }
-  p {
-    white-space: wrap;
-  }
+}
+.recommendations h4 {
+  font-size: 0.75rem;
+}
+.recommendations p {
+  white-space: wrap;
 }
 @media screen and (max-width: 680px) {
   .movie-info {
@@ -850,9 +839,9 @@ button {
 /* Search */
 .search-result {
   margin-top: 7rem;
-  h1 {
-    margin-left: 2.5rem;
-  }
+}
+.search-result h1 {
+  margin-left: 2.5rem;
 }
 .search-bar {
   display: flex;
@@ -932,21 +921,23 @@ footer {
   position: absolute;
   width: 100%;
   height: 6rem;
-  overflow: hidden;
   border-top: 1px solid var(--secondary-color);
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 2.5rem;
-    .social-media {
-      display: flex;
-
-      a {
-        color: var(--secondary-color);
-        margin-left: 1rem;
-        font-size: 2rem;
-      }
-    }
-  }
+  padding-top: 1rem;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 2.5rem;
+}
+.social-media {
+  display: flex;
+}
+.social-media a {
+  color: var(--secondary-color);
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+.footer p {
+  padding: 1rem;
 }

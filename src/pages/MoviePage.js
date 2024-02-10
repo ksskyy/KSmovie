@@ -145,7 +145,7 @@ const MoviePage = () => {
             <div>
               <div>
                 <div className="genre-wrapper">
-                  {movieData && movieData.length > 0 && (
+                  {movieData && (
                     <div className="movie-title-fav">
                       <h2>{movieData.title}</h2>
                       <motion.div
