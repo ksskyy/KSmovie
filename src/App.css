@@ -387,9 +387,9 @@ button {
 .about .tmdb {
   display: flex;
   gap: 1rem;
-  img {
-    width: 40px;
-  }
+}
+.about .tmdb img {
+  width: 40px;
 }
 @media screen and (max-width: 769px) {
   .about .about-intro {
