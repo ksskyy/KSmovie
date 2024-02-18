@@ -443,7 +443,7 @@ button {
   font-weight: 700;
   top: 85%;
 }
-.movie-list h4 {
+.movie-overview-title {
   text-align: left;
   margin: 0.25rem;
   font-weight: normal;
@@ -508,6 +508,7 @@ button {
 .date {
   font-weight: 700;
   font-size: clamp(0.75rem, 1.25vw, 2rem);
+  margin: 1px;
 }
 .card-details:hover .movie-overview {
   opacity: 1;
@@ -554,6 +555,9 @@ button {
   .movie-list {
     /* display: block; */
     grid-template-columns: repeat(2, 1fr);
+  }
+  .movie-overview-title {
+    font-size: 0.75rem;
   }
 }
 
@@ -798,6 +802,7 @@ button {
 }
 .recommendations-list {
   padding-top: 1rem;
+  padding-left: 0.5rem;
   overflow-x: auto;
   white-space: nowrap;
 }

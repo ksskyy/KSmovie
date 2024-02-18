@@ -68,7 +68,7 @@ const Card = ({ movie, isFav }) => {
         )}
         <div>
           <div className="movie-overview">
-            <h4>OVERVIEW</h4>
+            <h4 className="movie-overview-title">OVERVIEW</h4>
             <p className="date">{movie?.release_date}</p>
             <p className="overview-text">{truncate(movie?.overview, 80)}</p>
             <Link
