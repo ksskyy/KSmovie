@@ -459,6 +459,11 @@ button {
 .card .movies-title {
   margin-top: 1rem;
   color: var(--third-color);
+  text-align: left;
+  font-weight: normal;
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  font-weight: 600;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .card-details {
   position: relative;
@@ -825,7 +830,7 @@ button {
   width: 10rem;
   margin-bottom: 0.5rem;
 }
-.recommendations h4 {
+.recommendations .movies-title {
   font-size: 0.75rem;
 }
 
@@ -849,7 +854,7 @@ button {
   }
 }
 @media screen and (max-width: 424px) {
-  .movie-title {
+  .recommendations .movies-title {
     display: none;
   }
   .recommendations {
